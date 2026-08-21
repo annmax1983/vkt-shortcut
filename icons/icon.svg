@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="key" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect x="4" y="4" width="120" height="120" rx="24" fill="url(#bg)"/>
+  <rect x="8" y="8" width="112" height="112" rx="20" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+  <!-- Key cap base (3D shadow) -->
+  <rect x="28" y="52" width="72" height="52" rx="8" fill="#334155" opacity="0.3"/>
+
+  <!-- Key cap body -->
+  <rect x="26" y="44" width="72" height="52" rx="8" fill="url(#key)" filter="url(#shadow)"/>
+
+  <!-- Key cap top face (lighter) -->
+  <rect x="30" y="46" width="64" height="44" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="0.5"/>
+
+  <!-- F1 text on key -->
+  <text x="62" y="74" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="800" fill="#475569" text-anchor="middle">F1</text>
+
+  <!-- Red X overlay -->
+  <line x1="42" y1="56" x2="82" y2="90" stroke="#ef4444" stroke-width="6" stroke-linecap="round"/>
+  <line x1="82" y1="56" x2="42" y2="90" stroke="#ef4444" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Red circle glow -->
+  <circle cx="62" cy="73" r="28" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.3"/>
+</svg>
