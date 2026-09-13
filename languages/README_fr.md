@@ -1,88 +1,121 @@
-# vkt-shortcut — 快捷键管控工具
-[English](../README.md) | 中文 | [Español](README_es.md) | [Deutsch](README_de.md) | [日本語](README_ja.md) | [Français](README_fr.md)
+# vkt-shortcut — Gestionnaire de raccourcis clavier
 
-一款轻量级浏览器扩展，全局屏蔽和重映射键盘快捷键。告别误触干扰，自定义按键行为，全面掌控键盘。
+[English](../README.md) | [中文](README_zh.md) | [Español](README_es.md) | [Deutsch](README_de.md) | [日本語](README_ja.md) | Français
 
-> 基于 Chromium · Manifest V3 · 无追踪 · 100% 本地处理
+Une extension légère qui bloque et redéfinit les raccourcis clavier. Bloquez les raccourcis indésirables, redirigez les touches vers des actions personnalisées et prenez le contrôle total de votre clavier.
 
----
-
-## 核心差异化
-
-| 竞品痛点 | vkt-shortcut 解决方案 |
-|---|---|
-| ❌ 只能屏蔽，不能重映射 | ✅ 支持按键屏蔽；高级版解锁按键重映射 |
-| ❌ 规则分散，缺少全局总控 | ✅ 一套全局规则，一键总开关 |
-| ❌ 手动输入按键语法复杂 | ✅ 一键录制按键，自动识别 |
-| ❌ 数据上传、隐私风险 | ✅ 全部配置存储在浏览器本地 |
-| ❌ 免费版功能阉割严重 | ✅ 免费3条规则，满足轻度刚需 |
+> Chromium · Manifest V3 · Aucun suivi · Traitement 100 % local
 
 ---
 
-## 功能特性
+## Pourquoi vkt-shortcut ?
 
-### 🆓 免费版
+La plupart des bloqueurs de raccourcis ne font que bloquer — ils ne peuvent pas les redéfinir. vkt-shortcut est différent : **bloquez gratuitement, redéfinissez avec le Premium**, avec un jeu de règles qui s'applique partout par défaut — plus un ciblage par site quand vous en avez besoin.
 
-| 功能 | 说明 |
-|---|---|
-| 快捷键屏蔽 | 拦截并禁用任意网站的键盘快捷键 |
-| 按键录制 | 按下目标快捷键，自动识别录入 |
-| 全局规则 | 一套规则作用于所有网站 |
-| 全局总开关 | 一键启用/禁用所有规则 |
-| 最多3条规则 | 免费版支持3条自定义规则 |
-
-### ⭐ 高级版（许可证解锁）
-
-| 功能 | 说明 |
-|---|---|
-| **无限规则** | 规则数量无上限 |
-| **按键重映射** | 将按键A映射为按键B的效果 |
-| **导入/导出** | JSON格式备份和恢复规则 |
-| **优先支持** | 许可证用户更快响应 |
-
-单工具 **$2.99/月** 或 **$9.99 终身**。详见 [VKT 定价](https://www.annmax1983.com/pricing.html)。
+| Avantage | Détail |
+|-----------|--------|
+| 🚫 **Bloquer des touches** | Interceptez et désactivez n'importe quel raccourci clavier sur n'importe quel site |
+| 🔁 **Redéfinir des touches** | Redirigez une combinaison vers une autre — rare dans les outils similaires (Premium) |
+| 🌐 **Règles globales + par site** | Les règles s'appliquent sur chaque site par défaut ; limitez optionnellement une règle à un seul site (sous-domaines inclus) |
+| ⌨️ **Enregistrement de touches** | Appuyez directement sur la combinaison — capturée automatiquement |
+| 📤 **Import / Export** | Sauvegardez et restaurez les règles en JSON (Premium) |
 
 ---
 
-## 使用场景
+## Gratuit vs Premium
 
-- **Web 应用** — 屏蔽 Google Docs、Office 365 中 F1 打开帮助的干扰
-- **在线游戏** — 禁用影响游戏的浏览器快捷键（F11、Ctrl+W 等）
-- **开发者工具** — 重映射 DevTools 快捷键，避免与 IDE 冲突
-- **无障碍** — 将复杂组合键映射为简单按键
-- **演示模式** — 演示时屏蔽除导航外的所有快捷键
+| Plan | Fonctionnalités |
+|------|----------|
+| **Gratuit** | Blocage de raccourcis, enregistrement de touches, activation globale, jusqu'à 3 règles |
+| **⭐ Premium** | Règles illimitées, redéfinition de touches, import/export JSON, support prioritaire |
 
----
+Toutes les fonctionnalités de base (blocage, enregistrement) sont gratuites à vie. La **Redéfinition de touches** et l'**Import/Export** nécessitent une licence VKT Premium.
 
-## 安装方法
+- ⚙ L'activer : ouvrez le panneau latéral vkt-shortcut → cliquez sur le bouton **⚙** → saisissez votre clé de licence.
 
-1. 访问 vkt-shortcut 的 Chrome Web Store 页面
-2. 点击 **添加至 Chrome** 并确认
-3. 点击工具栏中的 ⌨️ vkt-shortcut 图标打开侧边栏
+> L'activation de la licence est **optionnelle**. Le niveau gratuit fonctionne entièrement sans elle — pas de compte, pas d'inscription, pas de clé de licence requise.
 
 ---
 
-## 隐私保护
+## Aperçu
 
-- ✅ 零数据上传 — 所有处理本地完成
-- ✅ 无分析、无追踪、无 Cookie
-- ✅ 规则仅存储在 `chrome.storage.local`
-- ✅ 仅需 `activeTab` + `scripting` + `storage` + `sidePanel` 权限
-
----
-
-## 源码说明
-
-> ⚠️ **此处不发布源码。** 本仓库仅提供使用说明、更新日志和留言支持服务。扩展程序仅通过 Chrome Web Store 分发，不提供离线安装包或终端用户源代码。
+<p align="center">
+  <img src="screenshot/promo.png" alt="Aperçu vkt-shortcut" width="640">
+</p>
 
 ---
 
-## 支持
+## Navigateurs compatibles
 
-问题、反馈或功能建议：**support@annmax1983.com**
+| Navigateur | Statut |
+|---------|--------|
+| Google Chrome | ✅ Entièrement pris en charge |
+| Microsoft Edge | ✅ Entièrement pris en charge |
+| Autres navigateurs basés sur Chromium | ✅ Devrait fonctionner |
 
 ---
 
-## 许可证
+## Installation
 
-专有软件，保留所有权利。
+1. Rendez-vous sur la page Chrome Web Store de vkt-shortcut
+2. Cliquez sur **Ajouter à Chrome** et confirmez
+3. Cliquez sur l'icône ⌨️ vkt-shortcut dans votre barre d'outils pour ouvrir le panneau latéral
+
+---
+
+## Utilisation
+
+1. **Cliquez sur l'icône ⌨️** dans la barre d'outils pour ouvrir le panneau latéral
+2. **Cliquez sur « ➕ Nouvelle règle »** pour créer une règle de raccourci
+3. **Choisissez le type de règle** — Bloquer (désactiver la touche) ou Redéfinir (rediriger la touche A → touche B)
+4. **Définissez la touche source** — cliquez sur le champ de saisie et appuyez sur la combinaison à intercepter
+5. **Pour une redéfinition : définissez la touche cible** — cliquez sur le champ cible et appuyez sur la combinaison de redirection
+6. **(Optionnel) Limitez à un site** — saisissez un domaine comme `youtube.com` (sous-domaines inclus), ou laissez vide pour une application globale
+7. **Enregistrez la règle** — elle prend effet immédiatement, aucun rechargement de page nécessaire
+8. **Basculez les règles** — utilisez l'interrupteur global pour mettre en pause sans supprimer
+
+---
+
+## Cas d'utilisation
+
+- **Applications web** — Bloquez F1 pour empêcher l'ouverture de l'aide dans Google Docs, Office 365 ou tout éditeur web
+- **Jeux en ligne** — Désactivez les raccourcis définis par la page qui interfèrent avec le jeu (note : les touches réservées par le navigateur comme Ctrl+W ou F11 ne peuvent pas être interceptées par une extension)
+- **Outils de développement** — Redéfinissez les raccourcis DevTools pour éviter les conflits avec les raccourcis de votre IDE
+- **Accessibilité** — Redéfinissez des combinaisons complexes vers des touches plus simples pour un accès facilité
+- **Mode présentation** — Bloquez tous les raccourcis sauf la navigation pendant les présentations
+
+---
+
+## Confidentialité
+
+- ✅ Les règles ne quittent jamais votre navigateur — le blocage/redéfinition se fait entièrement en local
+- ✅ Pas d'analytics, pas de suivi, pas de cookies
+- ✅ Les règles sont stockées uniquement dans `chrome.storage.local`
+- ✅ Permissions `storage` + `sidePanel` uniquement
+- ℹ️ Les seules requêtes réseau sont l'activation/validation optionnelle de la licence, qui envoie des métadonnées de l'appareil à notre serveur de licences (`api.annmax1983.com`)
+
+---
+
+## Avertissement relatif au droit d'auteur
+
+Cette extension intercepte les événements clavier sur les pages web au niveau du navigateur pour la commodité de l'utilisateur. Tout le contenu, les fonctionnalités et la propriété intellectuelle des sites web originaux restent inchangés. Le blocage ou la redéfinition de raccourcis ne modifie aucun contenu de site — cela empêche ou redirige simplement la saisie clavier avant qu'elle n'atteigne la page.
+
+---
+
+## Avis sur le code source
+
+> ⚠️ **Ce dépôt ne publie pas le code source.** Il contient uniquement la documentation d'utilisation, les notes de version et les ressources d'assistance. L'extension est distribuée exclusivement via le Chrome Web Store. Aucun package d'installation hors ligne ni code source destiné aux utilisateurs finaux n'est fourni.
+
+---
+
+## Licence
+
+Copyright © 2026 vkt-shortcut. Tous droits réservés.
+
+---
+
+## ❤️ Soutenir
+
+Si vkt-shortcut vous est utile, offrez-moi un café !
+
+**[👉 Cliquez ici pour soutenir](https://ko-fi.com/annmax?ref=vkt-shortcut)**

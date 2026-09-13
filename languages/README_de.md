@@ -1,88 +1,87 @@
-# vkt-shortcut — 快捷键管控工具
-[English](../README.md) | 中文 | [Español](README_es.md) | [Deutsch](README_de.md) | [日本語](README_ja.md) | [Français](README_fr.md)
+# vkt-shortcut — Tastenkürzel-Verwaltung
+[English](../README.md) | [中文](README_zh.md) | [Español](README_es.md) | Deutsch | [日本語](README_ja.md) | [Français](README_fr.md)
 
-一款轻量级浏览器扩展，全局屏蔽和重映射键盘快捷键。告别误触干扰，自定义按键行为，全面掌控键盘。
+Eine schlanke Browser-Erweiterung zum Blockieren und Umbelegen von Tastenkürzeln. Vermeiden Sie ungewollte Auslösungen, passen Sie das Tastenverhalten an und übernehmen Sie die volle Kontrolle über Ihre Tastatur.
 
-> 基于 Chromium · Manifest V3 · 无追踪 · 100% 本地处理
+> Chromium-basiert · Manifest V3 · Kein Tracking · Regeln zu 100 % lokal gespeichert
 
 ---
 
-## 核心差异化
+## Kernunterscheidungsmerkmale
 
-| 竞品痛点 | vkt-shortcut 解决方案 |
+| Problem bei Konkurrenten | vkt-shortcut Lösung |
 |---|---|
-| ❌ 只能屏蔽，不能重映射 | ✅ 支持按键屏蔽；高级版解锁按键重映射 |
-| ❌ 规则分散，缺少全局总控 | ✅ 一套全局规则，一键总开关 |
-| ❌ 手动输入按键语法复杂 | ✅ 一键录制按键，自动识别 |
-| ❌ 数据上传、隐私风险 | ✅ 全部配置存储在浏览器本地 |
-| ❌ 免费版功能阉割严重 | ✅ 免费3条规则，满足轻度刚需 |
+| ❌ Nur Blockieren, kein Umbelegen | ✅ Tasten blockieren; Umbelegen als Premium-Funktion |
+| ❌ Zersplitterte Regeln ohne zentrale Steuerung | ✅ Standardmäßig überall wirksam, optional auf eine Website beschränkbar, mit globalem Schalter |
+| ❌ Komplizierte manuelle Tastensyntax | ✅ Einfach die Taste drücken – sie wird automatisch erkannt |
+| ❌ Datenübertragung und Datenschutzrisiken | ✅ Gesamte Konfiguration bleibt lokal im Browser |
+| ❌ Stark eingeschränkte Gratisversion | ✅ 3 kostenlose Regeln für den Grundbedarf |
 
 ---
 
-## 功能特性
+## Funktionen
 
-### 🆓 免费版
+### 🆓 Kostenlos
 
-| 功能 | 说明 |
+| Funktion | Beschreibung |
 |---|---|
-| 快捷键屏蔽 | 拦截并禁用任意网站的键盘快捷键 |
-| 按键录制 | 按下目标快捷键，自动识别录入 |
-| 全局规则 | 一套规则作用于所有网站 |
-| 全局总开关 | 一键启用/禁用所有规则 |
-| 最多3条规则 | 免费版支持3条自定义规则 |
+| Tasten blockieren | Tastenkürzel auf beliebigen Websites abfangen und deaktivieren |
+| Tastenerkennung | Gewünschte Kombination einfach drücken – wird automatisch erfasst |
+| Geltungsbereich | Standardmäßig auf allen Websites; optional auf eine Website beschränkbar (Subdomains inklusive) |
+| Globaler Schalter | Alle Regeln mit einem Klick aktivieren/deaktivieren |
+| Bis zu 3 Regeln | Die Gratisversion unterstützt 3 eigene Regeln |
 
-### ⭐ 高级版（许可证解锁）
+### ⭐ Premium (per Lizenz freigeschaltet)
 
-| 功能 | 说明 |
+| Funktion | Beschreibung |
 |---|---|
-| **无限规则** | 规则数量无上限 |
-| **按键重映射** | 将按键A映射为按键B的效果 |
-| **导入/导出** | JSON格式备份和恢复规则 |
-| **优先支持** | 许可证用户更快响应 |
-
-单工具 **$2.99/月** 或 **$9.99 终身**。详见 [VKT 定价](https://www.annmax1983.com/pricing.html)。
+| **Unbegrenzte Regeln** | Keine Obergrenze bei der Anzahl der Regeln |
+| **Tasten umbelegen** | Taste A wirken lassen wie Taste B |
+| **Import/Export** | Regeln als JSON sichern und wiederherstellen |
+| **Prioritäts-Support** | Schnellere Antworten für Lizenzkunden |
 
 ---
 
-## 使用场景
+## Anwendungsfälle
 
-- **Web 应用** — 屏蔽 Google Docs、Office 365 中 F1 打开帮助的干扰
-- **在线游戏** — 禁用影响游戏的浏览器快捷键（F11、Ctrl+W 等）
-- **开发者工具** — 重映射 DevTools 快捷键，避免与 IDE 冲突
-- **无障碍** — 将复杂组合键映射为简单按键
-- **演示模式** — 演示时屏蔽除导航外的所有快捷键
-
----
-
-## 安装方法
-
-1. 访问 vkt-shortcut 的 Chrome Web Store 页面
-2. 点击 **添加至 Chrome** 并确认
-3. 点击工具栏中的 ⌨️ vkt-shortcut 图标打开侧边栏
+- **Web-Apps** — F1-Hilfe in Google Docs oder Office 365 blockieren
+- **Browserspiele** — Seiteneigene Spielkürzel deaktivieren, die das Gameplay stören (Hinweis: Browser-eigene Kürzel wie Strg+W oder F11 kann keine Erweiterung abfangen)
+- **Entwicklertools** — DevTools-Kürzel umbelegen, um Konflikte mit der IDE zu vermeiden
+- **Barrierefreiheit** — Komplexe Kombinationen auf einfache Tasten mappen
+- **Präsentationsmodus** — Während der Präsentation alle Kürzel außer der Navigation blockieren
 
 ---
 
-## 隐私保护
+## Installation
 
-- ✅ 零数据上传 — 所有处理本地完成
-- ✅ 无分析、无追踪、无 Cookie
-- ✅ 规则仅存储在 `chrome.storage.local`
-- ✅ 仅需 `activeTab` + `scripting` + `storage` + `sidePanel` 权限
-
----
-
-## 源码说明
-
-> ⚠️ **此处不发布源码。** 本仓库仅提供使用说明、更新日志和留言支持服务。扩展程序仅通过 Chrome Web Store 分发，不提供离线安装包或终端用户源代码。
+1. vkt-shortcut im Chrome Web Store aufrufen
+2. Auf **Zu Chrome hinzufügen** klicken und bestätigen
+3. In der Symbolleiste auf das ⌨️-Symbol klicken, um das Side Panel zu öffnen
 
 ---
 
-## 支持
+## Datenschutz
 
-问题、反馈或功能建议：**support@annmax1983.com**
+- ✅ Regeln verlassen niemals den Browser — Blockieren und Umbelegen geschieht vollständig lokal
+- ✅ Keine Analyse, kein Tracking, keine Cookies
+- ✅ Regeln werden ausschließlich in `chrome.storage.local` gespeichert
+- ✅ Nur die Berechtigungen `storage` + `sidePanel`
+- ℹ️ Die einzigen Netzwerkanfragen sind die optionale Lizenzaktivierung und -prüfung (es werden nur Geräteinformationen an unseren Lizenzserver `api.annmax1983.com` gesendet)
 
 ---
 
-## 许可证
+## Quellcode-Hinweis
 
-专有软件，保留所有权利。
+> ⚠️ **In diesem Repository wird kein Quellcode veröffentlicht.** Es enthält ausschließlich Nutzungsdokumentation, Versionshinweise und Support-Angebote. Die Erweiterung wird nur über den Chrome Web Store vertrieben; Offline-Installationspakete oder Quellcode für Endnutzer werden nicht bereitgestellt.
+
+---
+
+## Support
+
+Fragen, Feedback oder Funktionswünsche: **support@annmax1983.com**
+
+---
+
+## Lizenz
+
+Proprietäre Software. Alle Rechte vorbehalten.
