@@ -1,23 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Privacy Policy – vkt-shortcut</title></head>
-<body style="max-width:720px;margin:40px auto;padding:0 20px;font-family:system-ui,sans-serif;line-height:1.7;color:#1e293b;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Privacy Policy – vkt-shortcut</title>
+<style>
+  :root { color-scheme: light; }
+  body { max-width: 760px; margin: 40px auto; padding: 0 20px; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.7; color: #1e293b; background: #fff; }
+  h1 { font-size: 28px; margin-bottom: 4px; }
+  .meta { color: #64748b; font-size: 13px; margin-bottom: 28px; }
+  h2 { font-size: 18px; margin: 32px 0 8px; padding-bottom: 6px; border-bottom: 1px solid #e2e8f0; }
+  p, li { font-size: 15px; }
+  ul { padding-left: 22px; }
+  li { margin: 4px 0; }
+  code { background: #f1f5f9; padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0 4px; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+  th { background: #f8fafc; font-weight: 600; }
+  .note { background: #f8fafc; border-left: 3px solid #94a3b8; padding: 10px 14px; margin: 14px 0; font-size: 14px; }
+  a { color: #2563eb; }
+</style>
+</head>
+<body>
 <h1>Privacy Policy</h1>
-<p><strong>vkt-shortcut</strong> respects your privacy. This extension does not collect, transmit, or share any personal data.</p>
-<h2>Data Storage</h2>
-<p>All shortcut rules and settings are stored locally using <code>chrome.storage.local</code>. No data is uploaded to any server.</p>
-<h2>Permissions</h2>
+<p class="meta">vkt-shortcut &middot; Last updated: September 26, 2026</p>
+
+<p><strong>vkt-shortcut</strong> is designed to work entirely on your device. It does not collect your browsing history, page content, or the keys you press. The only time it contacts a server is when you choose to activate or validate a Premium license key.</p>
+
+<h2>1. What We Do Not Collect</h2>
 <ul>
-<li><strong>activeTab</strong> — Used to inject content scripts for key interception on the current tab only.</li>
-<li><strong>scripting</strong> — Required for Manifest V3 content script injection.</li>
-<li><strong>storage</strong> — Stores your rules and settings locally.</li>
-<li><strong>sidePanel</strong> — Provides the rule management UI.</li>
+  <li>No browsing history, URLs, or page content</li>
+  <li>No keystroke logging &mdash; key interception happens locally and is never transmitted or stored anywhere outside your browser</li>
+  <li>No analytics, telemetry, advertising identifiers, or cookies</li>
+  <li>No account, email address, or personal profile</li>
 </ul>
-<h2>Third-Party Services</h2>
-<p>No analytics, tracking, or advertising services are used. License validation contacts the developer's API only when you activate a license key.</p>
-<h2>Changes</h2>
-<p>This policy may be updated. Changes will be reflected in the extension's store listing.</p>
-<h2>Contact</h2>
-<p>support@annmax1983.com</p>
+
+<h2>2. Data Stored Locally</h2>
+<p>Everything below stays in <code>chrome.storage.local</code> on your device and is never uploaded:</p>
+<table>
+  <tr><th>Key</th><th>Contents</th></tr>
+  <tr><td><code>vks_rules</code></td><td>Your shortcut rules (key, modifiers, website scope, enabled state)</td></tr>
+  <tr><td><code>vks_config</code></td><td>Global on/off switch and Premium status flag</td></tr>
+  <tr><td><code>vkt_license_vktshortcut</code></td><td>Your license key and its expiry date, if you activated one</td></tr>
+  <tr><td><code>vkt_last_validate_vktshortcut</code></td><td>Timestamp of the last successful license check</td></tr>
+  <tr><td><code>vks_global_device_id</code></td><td>A device identifier (see section 3)</td></tr>
+</table>
+
+<h2>3. Network Requests (License Only, Optional)</h2>
+<p>If &mdash; and only if &mdash; you enter a license key, the extension sends a request to the developer's license server:</p>
+<p><code>https://api.annmax1983.com/api/license/</code> (<code>activate</code> &middot; <code>validate</code> &middot; <code>deactivate</code>)</p>
+<p>Each request carries only the following:</p>
+<ul>
+  <li><strong>License key</strong> &mdash; the key you entered.</li>
+  <li><strong>Plugin id</strong> &mdash; the constant string <code>vktshortcut</code>.</li>
+  <li><strong>Device id</strong> &mdash; a non-reversible SHA-256 hash derived from general hardware and platform characteristics (platform, CPU core count, approximate device memory, touch-point count). It contains no personal data and cannot be used to identify you.</li>
+  <li><strong>Device metadata</strong> &mdash; browser name and major version, browser UI language, and time zone. This is used only to show your activated devices in the license dashboard.</li>
+</ul>
+<div class="note">Without a license key, the extension makes <strong>no network requests at all</strong>. The free tier is fully functional offline.</div>
+
+<h2>4. Permissions and Why They Are Needed</h2>
+<p>These are the only permissions the extension requests:</p>
+<table>
+  <tr><th>Permission</th><th>Purpose</th></tr>
+  <tr><td><code>storage</code></td><td>Save your rules, settings, and license information locally.</td></tr>
+  <tr><td><code>sidePanel</code></td><td>Display the rule management interface in the browser side panel.</td></tr>
+  <tr><td><code>https://api.annmax1983.com/*</code></td><td>Allow the license activation request described in section 3. No other host is contacted.</td></tr>
+  <tr><td>Content script on all sites</td><td>Shortcut blocking and remapping must be able to run on whatever page you are viewing, so a small script is injected into web pages at <code>document_start</code>. It only reads keyboard events, compares them against your local rules, and blocks or redirects the matching ones. It does not read, modify, or transmit page content.</td></tr>
+</table>
+
+<h2>5. Third-Party Services</h2>
+<p>None. There are no analytics providers, ad networks, crash reporters, or tracking SDKs in this extension.</p>
+
+<h2>6. Data Sharing</h2>
+<p>We do not sell, rent, or share your data with third parties. License data is transmitted only to the developer's own license server, and is used solely to verify a license key you provided.</p>
+
+<h2>7. Your Control Over Your Data</h2>
+<ul>
+  <li><strong>Rules and settings</strong> &mdash; delete individual rules in the side panel, or remove everything by uninstalling the extension.</li>
+  <li><strong>License</strong> &mdash; click <em>Remove</em> in Settings to delete the stored license key and release the device slot on the server.</li>
+  <li><strong>All local data</strong> &mdash; uninstalling the extension deletes all locally stored data.</li>
+</ul>
+
+<h2>8. Children's Privacy</h2>
+<p>This extension is not directed at children and does not knowingly collect any information from them.</p>
+
+<h2>9. Changes to This Policy</h2>
+<p>If this policy changes, the updated version will be published at this URL and reflected in the extension's store listing. Material changes will be noted in the extension's release notes.</p>
+
+<h2>10. Contact</h2>
+<p>Questions about this policy: <a href="mailto:support@annmax1983.com">support@annmax1983.com</a></p>
 </body>
 </html>
