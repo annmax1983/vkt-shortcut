@@ -14,10 +14,12 @@ La mayoría de bloqueadores de atajos solo bloquean teclas — no pueden reasign
 
 | Ventaja | Detalle |
 |---------|--------|
-| 🚫 **Bloquear teclas** | Intercepta y desactiva cualquier atajo de teclado en cualquier sitio web |
-| 🔁 **Reasignar teclas** | Redirige una combinación de teclas a otra — poco común en herramientas similares (Premium) |
+| 🚫 **Bloquear teclas** | Intercepta y desactiva atajos de teclado dentro de la página, en cualquier sitio |
+| 🔁 **Reasignar teclas** | Redirige una combinación de teclas a otra dentro de la página — poco común en herramientas similares (Premium) |
 | 🌐 **Reglas globales + por sitio** | Las reglas se aplican en todos los sitios web por defecto; opcionalmente limita una regla a un sitio (subdominios incluidos) |
 | ⌨️ **Grabación de teclas** | Pulsa la combinación directamente — se captura automáticamente |
+| ⚡ **Preajustes por sitio** | Reglas de bloqueo con un clic para conflictos conocidos en sitios populares — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (votos A/Z, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), el Ctrl+J de Doubao, el Ctrl+P/J de Notion, el Ctrl+P/J de VS Code Web. Todos los sitios compatibles aparecen en el panel, sin tener que visitarlos antes. Cada tecla del preajuste crea una regla, así que se aplica el límite de 20 reglas del plan gratuito |
+| 🔇 **Bloquear todos los atajos** | Un interruptor por sitio que neutraliza cada atajo de la página, más un interruptor global en la parte superior del panel para todos los sitios a la vez (escribir, las flechas, el portapapeles y recargar siguen funcionando; la pausa por sitio tiene prioridad) |
 | 📤 **Importar / Exportar** | Respaldo y restauración de reglas como JSON (Premium) |
 
 ---
@@ -26,7 +28,7 @@ La mayoría de bloqueadores de atajos solo bloquean teclas — no pueden reasign
 
 | Plan | Funcionalidades |
 |------|----------|
-| **Gratis** | Bloquear atajos, grabación de teclas, interruptor global, hasta 3 reglas |
+| **Gratis** | Bloquear atajos, grabación de teclas, interruptor global, hasta 20 reglas activas |
 | **⭐ Premium** | Reglas ilimitadas, reasignación de teclas, importar/exportar JSON, soporte prioritario |
 
 Todas las funcionalidades principales (bloquear, grabar) son gratuitas para siempre. La **Reasignación de teclas** y **Importar/Exportar** requieren una licencia VKT Premium.
@@ -79,10 +81,10 @@ Todas las funcionalidades principales (bloquear, grabar) son gratuitas para siem
 ## Casos de uso
 
 - **Aplicaciones web** — Bloquea F1 para que no abra la ayuda en Google Docs, Office 365 o cualquier editor web
-- **Juegos online** — Desactiva atajos definidos por la página que interfieran con el juego (nota: las teclas reservadas por el navegador como Ctrl+W o F11 no pueden ser interceptadas por ninguna extensión)
+- **Juegos online** — Desactiva atajos definidos por la página que interfieran con el juego (nota: las teclas reservadas por el navegador como Ctrl+W o F11 nunca llegan a la página, por lo que la interceptación a nivel de página no puede bloquearlas; las extensiones que usan `chrome.commands` solo pueden neutralizar algunas vinculándolas a comandos vacíos)
 - **Herramientas de desarrollo** — Reasigna atajos de DevTools para evitar conflictos con combinaciones del IDE
 - **Accesibilidad** — Reasigna combinaciones complejas a teclas más simples para facilitar el acceso
-- **Modo presentación** — Bloquea todos los atajos excepto la navegación durante presentaciones
+- **Modo presentación** — Bloquea todos los atajos de la página excepto la navegación durante presentaciones
 
 ---
 
@@ -92,7 +94,7 @@ Todas las funcionalidades principales (bloquear, grabar) son gratuitas para siem
 - ✅ Sin analíticas, sin rastreo, sin cookies
 - ✅ Las reglas se almacenan solo en `chrome.storage.local`
 - ✅ Solo permisos `storage` + `sidePanel`
-- ℹ️ Las únicas solicitudes de red son la activación/validación opcional de licencia, que envía metadatos del dispositivo a nuestro servidor de licencias (`api.annmax1983.com`)
+- ℹ️ Las únicas solicitudes de red son la activación/validación opcional de licencia, que envía tu clave de licencia, un identificador de instalación aleatorio y metadatos del navegador a nuestro servidor de licencias (`api.annmax1983.com`)
 
 ---
 

@@ -43,7 +43,7 @@
   <tr><td><code>vks_config</code></td><td>Global on/off switch and Premium status flag</td></tr>
   <tr><td><code>vkt_license_vktshortcut</code></td><td>Your license key and its expiry date, if you activated one</td></tr>
   <tr><td><code>vkt_last_validate_vktshortcut</code></td><td>Timestamp of the last successful license check</td></tr>
-  <tr><td><code>vks_global_device_id</code></td><td>A device identifier (see section 3)</td></tr>
+  <tr><td><code>vkt_install_id</code></td><td>A random identifier generated for this installation (see section 3)</td></tr>
 </table>
 
 <h2>3. Network Requests (License Only, Optional)</h2>
@@ -53,10 +53,11 @@
 <ul>
   <li><strong>License key</strong> &mdash; the key you entered.</li>
   <li><strong>Plugin id</strong> &mdash; the constant string <code>vktshortcut</code>.</li>
-  <li><strong>Device id</strong> &mdash; a non-reversible SHA-256 hash derived from general hardware and platform characteristics (platform, CPU core count, approximate device memory, touch-point count). It contains no personal data and cannot be used to identify you.</li>
-  <li><strong>Device metadata</strong> &mdash; browser name and major version, browser UI language, and time zone. This is used only to show your activated devices in the license dashboard.</li>
+  <li><strong>Install id</strong> &mdash; a random identifier generated locally on first activation (<code>vkt_inst_</code> + 32 random hex characters). It contains no device or personal information and cannot be used to identify you or your hardware.</li>
+  <li><strong>Device metadata</strong> &mdash; browser name and version, the full user-agent string (which can include the browser version and operating system), browser UI language, and time zone. This is used only to show your activated installations in the license dashboard.</li>
 </ul>
 <div class="note">Without a license key, the extension makes <strong>no network requests at all</strong>. The free tier is fully functional offline.</div>
+<p>Our license server records the IP address of these requests solely for rate limiting and abuse prevention — never for profiling, advertising, or sharing with third parties.</p>
 
 <h2>4. Permissions and Why They Are Needed</h2>
 <p>These are the only permissions the extension requests:</p>
@@ -77,7 +78,7 @@
 <h2>7. Your Control Over Your Data</h2>
 <ul>
   <li><strong>Rules and settings</strong> &mdash; delete individual rules in the side panel, or remove everything by uninstalling the extension.</li>
-  <li><strong>License</strong> &mdash; click <em>Remove</em> in Settings to delete the stored license key and release the device slot on the server.</li>
+  <li><strong>License</strong> &mdash; click <em>Remove</em> in Settings to delete the stored license key and release the activation slot on the server.</li>
   <li><strong>All local data</strong> &mdash; uninstalling the extension deletes all locally stored data.</li>
 </ul>
 

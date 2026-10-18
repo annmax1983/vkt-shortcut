@@ -25,11 +25,13 @@ Eine schlanke Browser-Erweiterung zum Blockieren und Umbelegen von Tastenkürzel
 
 | Funktion | Beschreibung |
 |---|---|
-| Tasten blockieren | Tastenkürzel auf beliebigen Websites abfangen und deaktivieren |
+| Tasten blockieren | Tastenkürzel innerhalb von Webseiten abfangen und deaktivieren |
 | Tastenerkennung | Gewünschte Kombination einfach drücken – wird automatisch erfasst |
 | Geltungsbereich | Standardmäßig auf allen Websites; optional auf eine Website beschränkbar (Subdomains inklusive) |
+| Website-Voreinstellungen | Ein-Klick-Blockregeln für bekannte Konflikte auf beliebten Websites — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (A/Z-Stimmen, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), Doubaos Ctrl+J, Notions Ctrl+P/J, VS Code Webs Ctrl+P/J. Alle unterstützten Websites stehen direkt im Panel, ohne dass Sie sie erst besuchen müssen. Jede Preset-Taste wird eine eigene Regel; das Gratis-Limit von 20 Regeln gilt |
+| Alle Kürzel blockieren | Ein Schalter pro Website, der jedes Seiten-Kürzel außer Kraft setzt, plus ein globaler Schalter oben im Side Panel für alle Websites auf einmal (Eingabe, Tastaturnavigation, Zwischenablage und Neu laden funktionieren weiterhin; die Website-Pause hat Vorrang) |
 | Globaler Schalter | Alle Regeln mit einem Klick aktivieren/deaktivieren |
-| Bis zu 3 Regeln | Die Gratisversion unterstützt 3 eigene Regeln |
+| Bis zu 20 aktive Regeln | Die Gratisversion unterstützt 20 gleichzeitig aktive Regeln – deaktivierte zählen nicht mit |
 
 ### ⭐ Premium (per Lizenz freigeschaltet)
 
@@ -45,10 +47,10 @@ Eine schlanke Browser-Erweiterung zum Blockieren und Umbelegen von Tastenkürzel
 ## Anwendungsfälle
 
 - **Web-Apps** — F1-Hilfe in Google Docs oder Office 365 blockieren
-- **Browserspiele** — Seiteneigene Spielkürzel deaktivieren, die das Gameplay stören (Hinweis: Browser-eigene Kürzel wie Strg+W oder F11 kann keine Erweiterung abfangen)
+- **Browserspiele** — Seiteneigene Spielkürzel deaktivieren, die das Gameplay stören (Hinweis: Browser-eigene Kürzel wie Strg+W oder F11 kommen nie auf der Seite an, daher kann sie die Seiten-Interceptor nicht blockieren; Erweiterungen mit `chrome.commands` können nur einige wenige per Leerbefehl neutralisieren)
 - **Entwicklertools** — DevTools-Kürzel umbelegen, um Konflikte mit der IDE zu vermeiden
 - **Barrierefreiheit** — Komplexe Kombinationen auf einfache Tasten mappen
-- **Präsentationsmodus** — Während der Präsentation alle Kürzel außer der Navigation blockieren
+- **Präsentationsmodus** — Während der Präsentation alle Kürzel auf der Seite außer der Navigation blockieren
 
 ---
 
@@ -66,7 +68,7 @@ Eine schlanke Browser-Erweiterung zum Blockieren und Umbelegen von Tastenkürzel
 - ✅ Keine Analyse, kein Tracking, keine Cookies
 - ✅ Regeln werden ausschließlich in `chrome.storage.local` gespeichert
 - ✅ Nur die Berechtigungen `storage` + `sidePanel`
-- ℹ️ Die einzigen Netzwerkanfragen sind die optionale Lizenzaktivierung und -prüfung (es werden nur Geräteinformationen an unseren Lizenzserver `api.annmax1983.com` gesendet)
+- ℹ️ Die einzigen Netzwerkanfragen sind die optionale Lizenzaktivierung und -prüfung (es werden Lizenzschlüssel, eine zufällige Installations-Kennung und Browser-Metadaten an unseren Lizenzserver `api.annmax1983.com` gesendet)
 
 ---
 

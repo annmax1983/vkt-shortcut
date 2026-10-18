@@ -14,10 +14,12 @@ La plupart des bloqueurs de raccourcis ne font que bloquer — ils ne peuvent pa
 
 | Avantage | Détail |
 |-----------|--------|
-| 🚫 **Bloquer des touches** | Interceptez et désactivez n'importe quel raccourci clavier sur n'importe quel site |
-| 🔁 **Redéfinir des touches** | Redirigez une combinaison vers une autre — rare dans les outils similaires (Premium) |
+| 🚫 **Bloquer des touches** | Interceptez et désactivez les raccourcis clavier des pages, sur n'importe quel site |
+| 🔁 **Redéfinir des touches** | Redirigez une combinaison vers une autre dans la page (Premium) |
 | 🌐 **Règles globales + par site** | Les règles s'appliquent sur chaque site par défaut ; limitez optionnellement une règle à un seul site (sous-domaines inclus) |
 | ⌨️ **Enregistrement de touches** | Appuyez directement sur la combinaison — capturée automatiquement |
+| ⚡ **Préréglages par site** | Règles de blocage en un clic pour les conflits connus sur les sites populaires — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (votes A/Z, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), le Ctrl+J de Doubao, le Ctrl+P/J de Notion, le Ctrl+P/J de VS Code Web. Tous les sites pris en charge sont listés dans le panneau, sans avoir à les visiter d'abord. Chaque touche du préréglage devient une règle : la limite de 20 règles de la version gratuite s'applique |
+| 🔇 **Bloquer tous les raccourcis** | Un interrupteur par site qui neutralise chaque raccourci de la page, plus un interrupteur global en haut du panneau pour tous les sites à la fois (la saisie, les flèches, le presse-papiers et l'actualisation fonctionnent toujours ; la pause par site reste prioritaire) |
 | 📤 **Import / Export** | Sauvegardez et restaurez les règles en JSON (Premium) |
 
 ---
@@ -26,7 +28,7 @@ La plupart des bloqueurs de raccourcis ne font que bloquer — ils ne peuvent pa
 
 | Plan | Fonctionnalités |
 |------|----------|
-| **Gratuit** | Blocage de raccourcis, enregistrement de touches, activation globale, jusqu'à 3 règles |
+| **Gratuit** | Blocage de raccourcis, enregistrement de touches, activation globale, jusqu'à 20 règles actives |
 | **⭐ Premium** | Règles illimitées, redéfinition de touches, import/export JSON, support prioritaire |
 
 Toutes les fonctionnalités de base (blocage, enregistrement) sont gratuites à vie. La **Redéfinition de touches** et l'**Import/Export** nécessitent une licence VKT Premium.
@@ -79,10 +81,10 @@ Toutes les fonctionnalités de base (blocage, enregistrement) sont gratuites à 
 ## Cas d'utilisation
 
 - **Applications web** — Bloquez F1 pour empêcher l'ouverture de l'aide dans Google Docs, Office 365 ou tout éditeur web
-- **Jeux en ligne** — Désactivez les raccourcis définis par la page qui interfèrent avec le jeu (note : les touches réservées par le navigateur comme Ctrl+W ou F11 ne peuvent pas être interceptées par une extension)
+- **Jeux en ligne** — Désactivez les raccourcis définis par la page qui interfèrent avec le jeu (note : les touches réservées par le navigateur comme Ctrl+W ou F11 n'atteignent jamais la page ; l'interception au niveau de la page ne peut donc pas les bloquer. Les extensions utilisant `chrome.commands` peuvent seulement en neutraliser quelques-unes en les liant à des commandes vides)
 - **Outils de développement** — Redéfinissez les raccourcis DevTools pour éviter les conflits avec les raccourcis de votre IDE
 - **Accessibilité** — Redéfinissez des combinaisons complexes vers des touches plus simples pour un accès facilité
-- **Mode présentation** — Bloquez tous les raccourcis sauf la navigation pendant les présentations
+- **Mode présentation** — Bloquez tous les raccourcis de la page sauf la navigation pendant les présentations
 
 ---
 
@@ -92,7 +94,7 @@ Toutes les fonctionnalités de base (blocage, enregistrement) sont gratuites à 
 - ✅ Pas d'analytics, pas de suivi, pas de cookies
 - ✅ Les règles sont stockées uniquement dans `chrome.storage.local`
 - ✅ Permissions `storage` + `sidePanel` uniquement
-- ℹ️ Les seules requêtes réseau sont l'activation/validation optionnelle de la licence, qui envoie des métadonnées de l'appareil à notre serveur de licences (`api.annmax1983.com`)
+- ℹ️ Les seules requêtes réseau sont l'activation/validation optionnelle de la licence, qui envoie votre clé de licence, un identifiant d'installation aléatoire et des métadonnées de navigateur à notre serveur de licences (`api.annmax1983.com`)
 
 ---
 
