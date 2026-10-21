@@ -1,72 +1,550 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>vkt-shortcut - Support</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif; background: #1e1e2e; color: #cdd6f4; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
-    .card { background: #181825; border: 1px solid #313244; border-radius: 16px; max-width: 600px; width: 100%; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
-    .banner { background: linear-gradient(135deg, #1e1e2e, #313244); padding: 40px 32px 32px; text-align: center; }
-    .banner-icon { font-size: 48px; margin-bottom: 12px; }
-    .banner h1 { font-size: 28px; margin-bottom: 8px; background: linear-gradient(135deg, #89b4fa, #74c7ec); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .banner p { color: #a6adc8; font-size: 14px; }
-    .body { padding: 28px 32px; }
-    .body h2 { font-size: 16px; color: #89b4fa; margin-bottom: 14px; }
-    .body ul { list-style: none; padding: 0; margin-bottom: 20px; }
-    .body li { padding: 6px 0; font-size: 14px; color: #bac2de; border-bottom: 1px solid #1e1e2e; }
-    .body li:last-child { border-bottom: none; }
-    .body li::before { content: '✓ '; color: #89b4fa; }
-    .thank { margin-top: 20px; }
-    .thank p { font-size: 14px; color: #bac2de; line-height: 1.7; margin-bottom: 10px; }
-    .heart { color: #f38ba8; }
-    .cta { text-align: center; padding: 20px 32px 28px; border-top: 1px solid #313244; }
-    .cta p { font-size: 13px; color: #6c7086; margin-bottom: 14px; }
-    .support-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: linear-gradient(135deg, #89b4fa, #74c7ec); color: #1e1e2e; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; }
-    .support-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(137,180,250,0.3); }
-    .footer { padding: 16px 32px; text-align: center; font-size: 12px; color: #6c7086; border-top: 1px solid #1e1e2e; }
-    .footer a { color: #89b4fa; text-decoration: none; }
-    .footer a:hover { text-decoration: underline; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VKT Shortcut — Block Shortcuts</title>
+<meta name="description" content="VKT Shortcut is a keyboard shortcut manager for Chrome and Edge that blocks and remaps hotkeys on web pages. Stop a key that a site has claimed for something ">
+<link rel="icon" href="icons/icon128.png">
+<style>
+:root{
+  --accent:#6d28d9;
+  --accent-2:#a78bfa;
+  --bg:#f5f8fc;
+  --surface:#ffffff;
+  --ink:#20304a;
+  --body:#4b5870;
+  --muted:#64718a;
+  --line:#e2e8f2;
+  --tint:#eef3fb;
+  --tint:color-mix(in srgb, var(--accent) 8%, #ffffff);
+  --tint-strong:#e5edfa;
+  --tint-strong:color-mix(in srgb, var(--accent) 14%, #ffffff);
+  --shadow:0 18px 45px rgba(32,48,74,.10);
+  --shadow-soft:0 8px 24px rgba(32,48,74,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{
+  margin:0;
+  color:var(--body);
+  background:radial-gradient(900px 420px at 100% -8%, color-mix(in srgb, var(--accent-2) 12%, #ffffff) 0%, rgba(255,255,255,0) 70%), var(--bg);
+  font-family:"Segoe UI Variable Text","Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{display:block;max-width:100%}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+button,select{font:inherit}
+[hidden]{display:none !important}
+::selection{background:color-mix(in srgb, var(--accent) 22%, #ffffff);color:var(--ink)}
+:focus-visible{outline:2px solid color-mix(in srgb, var(--accent) 55%, #ffffff);outline-offset:3px}
+.wrap{width:min(1120px, calc(100% - 40px));margin:0 auto}
+.topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.topbar-inner{display:flex;align-items:center;gap:18px;height:70px}
+.brand{display:flex;align-items:center;gap:11px;color:var(--ink);font-size:16px;font-weight:750;letter-spacing:-.015em;white-space:nowrap}
+.brand:hover{text-decoration:none}
+.brand img{width:32px;height:32px;border-radius:9px;background:#fff;border:1px solid var(--line)}
+.nav-links{display:flex;align-items:center;gap:20px;margin-left:auto;font-size:13.5px;font-weight:650}
+.nav-links a{color:var(--muted)}
+.nav-links a:hover{color:var(--accent);text-decoration:none}
+.top-actions{display:flex;align-items:center;gap:9px;margin-left:auto}
+.nav-links + .top-actions{margin-left:0}
+.icon-btn{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--muted)}
+.icon-btn:hover{color:var(--accent);border-color:color-mix(in srgb, var(--accent) 26%, var(--line));text-decoration:none}
+.lang{
+  appearance:none;-webkit-appearance:none;
+  border:1px solid var(--line);
+  background-color:#fff;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364718a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 10px center;
+  background-size:12px;
+  color:var(--ink);
+  border-radius:10px;
+  padding:9px 32px 9px 11px;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+  max-width:150px;
+}
+.lang:hover{border-color:color-mix(in srgb, var(--accent) 26%, var(--line))}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:0 20px;border-radius:12px;border:1px solid transparent;font-weight:700;font-size:14.5px;line-height:1.2;transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 12px 26px color-mix(in srgb, var(--accent) 26%, transparent)}
+.btn-primary:hover{background:color-mix(in srgb, var(--accent) 90%, var(--ink));box-shadow:0 15px 30px color-mix(in srgb, var(--accent) 30%, transparent)}
+.btn-secondary{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-secondary:hover{border-color:color-mix(in srgb, var(--accent) 28%, var(--line))}
+.btn-quiet{background:transparent;color:var(--muted);padding:0 8px}
+.btn-quiet:hover{color:var(--accent)}
+.site-footer{margin-top:48px;border-top:1px solid var(--line);background:rgba(255,255,255,.8);padding:32px 0}
+.footer-inner{display:flex;flex-wrap:wrap;gap:20px 32px;align-items:center;justify-content:space-between}
+.footer-brand{display:flex;align-items:center;gap:11px;color:var(--ink);font-size:14px;font-weight:700}
+.footer-brand img{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:#fff}
+.footer-brand .copy{display:block;color:var(--muted);font-size:12px;font-weight:500;line-height:1.4;margin-top:1px}
+.footer-links{display:flex;flex-wrap:wrap;gap:9px 18px;align-items:center;font-size:13px;font-weight:600}
+.footer-links a{color:var(--muted)}
+.footer-links a:hover{color:var(--accent);text-decoration:none}
+@media (max-width:900px){
+  .nav-links{display:none}
+  .topbar-inner{height:62px}
+  .wrap{width:calc(100% - 32px)}
+}
+@media (max-width:560px){
+  .brand span{display:none}
+  .lang{max-width:124px}
+  .site-footer{padding:26px 0}
+  .footer-inner{align-items:flex-start;flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none !important;animation:none !important}
+}
+
+.hero{position:relative;overflow:hidden;padding:66px 0 44px}
+.hero::before{content:"";position:absolute;right:-160px;top:-220px;width:780px;height:780px;border-radius:50%;background:radial-gradient(circle, color-mix(in srgb, var(--accent-2) 20%, rgba(255,255,255,0)) 0%, rgba(255,255,255,0) 68%);pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(300px,.82fr);gap:54px;align-items:center}
+.hero-copy{min-width:0}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;border:1px solid color-mix(in srgb, var(--accent) 22%, var(--line));background:color-mix(in srgb, var(--accent) 7%, #ffffff);color:var(--accent);font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.hero h1{margin:16px 0 14px;color:var(--ink);font-size:clamp(36px,4.9vw,58px);line-height:1.04;letter-spacing:-.04em;font-weight:800;overflow-wrap:anywhere}
+.tagline{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 20px}
+.tagline span{padding:5px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.8);color:var(--muted);font-size:12.5px;font-weight:650}
+.lead{max-width:680px;margin:0 0 22px;color:var(--body);font-size:17px;line-height:1.72}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
+.badge{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-size:12.5px;font-weight:650}
+.badge svg{color:var(--accent)}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.micro{margin:16px 0 0;color:var(--muted);font-size:12.5px;font-weight:550}
+.app-card{position:relative;overflow:hidden;padding:32px 28px 24px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(160deg,#ffffff 0%, color-mix(in srgb, var(--accent) 7%, #ffffff) 100%);box-shadow:var(--shadow);text-align:center}
+.app-card-glow{position:absolute;width:220px;height:220px;left:50%;top:-120px;transform:translateX(-50%);border-radius:50%;background:color-mix(in srgb, var(--accent-2) 20%, rgba(255,255,255,0));filter:blur(8px)}
+.app-icon{position:relative;width:108px;height:108px;margin:6px auto 18px;padding:11px;border-radius:26px;background:#fff;border:1px solid var(--line);box-shadow:0 16px 30px rgba(32,48,74,.14)}
+.app-icon img{width:100%;height:100%;object-fit:contain;border-radius:18px}
+.app-name{position:relative;color:var(--ink);font-size:23px;font-weight:800;letter-spacing:-.02em}
+.app-sub{position:relative;margin:4px 0 20px;color:var(--muted);font-size:12.5px;font-weight:600}
+.app-points{position:relative;display:grid;gap:8px;text-align:left}
+.app-points div{display:flex;align-items:flex-start;gap:9px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.72);color:var(--body);font-size:13px;line-height:1.45}
+.app-points svg{flex:none;margin-top:2px;color:var(--accent)}
+.app-footer{position:relative;display:flex;align-items:center;justify-content:center;gap:7px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;font-weight:650}
+.app-footer svg{color:var(--accent)}
+.block{padding:56px 0}
+.section-head{max-width:720px;margin:0 0 26px}
+.kicker{margin:0 0 9px;color:var(--accent);font-size:11.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+.section-head h2,.support-copy h2{margin:0 0 10px;color:var(--ink);font-size:clamp(27px,3.2vw,37px);line-height:1.15;letter-spacing:-.025em;font-weight:800}
+.section-head p{margin:0;color:var(--muted);font-size:15.5px;line-height:1.65}
+.feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.feature{padding:21px 21px 23px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:var(--shadow-soft);transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease}
+.feature:hover{transform:translateY(-2px);border-color:color-mix(in srgb, var(--accent) 22%, var(--line));box-shadow:0 14px 32px rgba(32,48,74,.09)}
+.feature .num{display:inline-flex;align-items:center;justify-content:center;width:33px;height:33px;margin-bottom:13px;border-radius:10px;background:var(--tint);color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.04em}
+.feature p{margin:0;color:var(--body);font-size:14px;line-height:1.66}
+.more-panel{margin-top:15px;padding:22px 24px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:var(--shadow-soft)}
+.more-panel h3{margin:0 0 13px;color:var(--ink);font-size:13.5px;font-weight:750}
+.more-list{display:grid;grid-template-columns:1fr 1fr;gap:9px 28px;margin:0;padding:0;list-style:none}
+.more-list li{position:relative;padding-left:19px;color:var(--body);font-size:13.5px;line-height:1.55}
+.more-list li::before{content:"";position:absolute;left:1px;top:.6em;width:7px;height:7px;border-radius:2px;background:var(--accent-2)}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.plan{padding:26px 27px;border:1px solid var(--line);border-radius:21px;background:#fff;box-shadow:var(--shadow-soft)}
+.plan.premium{border-color:color-mix(in srgb, var(--accent) 25%, var(--line));background:linear-gradient(160deg,#ffffff 0%, color-mix(in srgb, var(--accent) 8%, #ffffff) 100%);box-shadow:var(--shadow)}
+.plan-top{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.plan-top h3{margin:0;color:var(--ink);font-size:20px;font-weight:780;letter-spacing:-.02em}
+.plan-mark{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:9px}
+.plan-mark.free{background:var(--tint);color:var(--accent)}
+.plan-mark.premium{background:var(--accent);color:#fff}
+.plan p{margin:0;color:var(--body);font-size:14.5px;line-height:1.72}
+.plan-note{margin-top:15px;padding:14px 17px;border:1px solid color-mix(in srgb, var(--accent) 16%, var(--line));border-radius:13px;background:var(--tint);color:var(--body);font-size:13px;line-height:1.65}
+.privacy-panel{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:34px;align-items:center;padding:42px 44px;border:1px solid color-mix(in srgb, var(--accent) 16%, var(--line));border-radius:28px;background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 8%, #ffffff) 0%, #ffffff 62%, color-mix(in srgb, var(--accent-2) 12%, #ffffff) 100%);box-shadow:var(--shadow)}
+.panel-icon{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;margin-bottom:15px;border-radius:14px;background:#fff;border:1px solid var(--line);color:var(--accent);box-shadow:var(--shadow-soft)}
+.privacy-panel h2{margin:0 0 10px;color:var(--ink);font-size:clamp(26px,3vw,35px);line-height:1.15;letter-spacing:-.025em;font-weight:800}
+.panel-lead{max-width:620px;margin:0 0 18px;color:var(--body);font-size:15px;line-height:1.7}
+.points{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.point{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.78);color:var(--ink);font-size:12.5px;font-weight:650}
+.point svg{color:var(--accent)}
+.text-link{display:inline-flex;align-items:center;gap:7px;color:var(--accent);font-size:13.5px;font-weight:750}
+.text-link:hover{text-decoration:none;gap:10px}
+.privacy-visual{position:relative;min-height:250px;display:grid;place-items:center}
+.ring{position:absolute;border-radius:50%;border:1px solid color-mix(in srgb, var(--accent) 20%, #ffffff)}
+.ring.one{width:190px;height:190px}
+.ring.two{width:260px;height:260px;opacity:.58}
+.ring.three{width:320px;height:320px;opacity:.32}
+.lock-badge{position:relative;display:grid;place-items:center;width:88px;height:88px;border-radius:26px;background:#fff;border:1px solid var(--line);color:var(--accent);box-shadow:var(--shadow)}
+.lock-badge svg{width:36px;height:36px}
+.support-card{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(260px,.7fr);gap:34px;align-items:center;padding:40px 44px;border:1px solid var(--line);border-radius:28px;background:#fff;box-shadow:var(--shadow-soft)}
+.support-copy .kicker{margin-bottom:10px}
+.support-copy p{max-width:640px;margin:0 0 12px;color:var(--body);font-size:14.5px;line-height:1.75}
+.support-copy p:last-of-type{margin-bottom:16px}
+.disclaimer{margin:0;color:var(--muted);font-size:12px;line-height:1.6}
+.kofi{display:flex;flex-direction:column;align-items:center;gap:12px;padding:26px 22px;border:1px solid color-mix(in srgb, var(--accent) 16%, var(--line));border-radius:20px;background:linear-gradient(160deg, color-mix(in srgb, var(--accent) 7%, #ffffff) 0%, #ffffff 100%);text-align:center}
+.kofi-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:#fff;border:1px solid var(--line);color:var(--accent);box-shadow:var(--shadow-soft)}
+.kofi p{margin:0;color:var(--body);font-size:13px;line-height:1.6}
+.kofi-btn{width:100%}
+.kofi-note{margin:0;color:var(--muted);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:38px}
+  .app-card{max-width:460px;margin:0 auto;width:100%}
+  .feature-grid{grid-template-columns:1fr 1fr}
+  .privacy-panel,.support-card{grid-template-columns:1fr;gap:26px}
+  .privacy-visual{min-height:210px}
+}
+@media (max-width:760px){
+  .hero{padding:44px 0 30px}
+  .hero h1{font-size:clamp(33px,9vw,46px)}
+  .lead{font-size:16px}
+  .block{padding:42px 0}
+  .feature-grid{grid-template-columns:1fr}
+  .plans{grid-template-columns:1fr}
+  .more-list{grid-template-columns:1fr}
+  .privacy-panel,.support-card{padding:28px 22px;border-radius:22px}
+  .privacy-visual{display:none}
+  .cta-row .btn{flex:1 1 auto}
+}
+</style>
 </head>
 <body>
-  <div class="card">
-    <div class="banner">
-      <div class="banner-icon">⌨️</div>
-      <h1>vkt-shortcut</h1>
-      <p data-i18n="tagline"></p>
-    </div>
-    <div class="body">
-      <h2 data-i18n="featuresTitle"></h2>
-      <ul id="featureList"></ul>
-      <h2 data-i18n="thankTitle"></h2>
-      <div class="thank" id="thankText"></div>
-    </div>
-    <div class="cta">
-      <p data-i18n="ctaHint"></p>
-      <a class="support-btn" href="https://ko-fi.com/annmax?ref=vkt-shortcut" target="_blank" rel="noopener">
-        ☕ <span data-i18n="btnText"></span>
-      </a>
-    </div>
-    <div class="footer">
-      <a href="https://github.com/annmax1983/vkt-shortcut" target="_blank" rel="noopener">GitHub</a> ·
-      <a href="privacy-policy.html" target="_blank" rel="noopener" data-i18n="privacyPolicy">Privacy</a> ·
-      Copyright © 2026 vkt-shortcut
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html"><img src="icons/icon128.png" alt="" width="32" height="32"><span>VKT Shortcut</span></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#features" id="i-nav-features">Features</a>
+      <a href="#plans" id="i-nav-plans">Free &amp; Premium</a>
+      <a href="#privacy" id="i-nav-privacy">Privacy</a>
+      <a href="#support" id="i-nav-support">Support</a>
+    </nav>
+    <div class="top-actions">
+      <select class="lang" id="i-lang" aria-label="Language"><option value="en">English</option><option value="zh">简体中文</option><option value="ja">日本語</option><option value="de">Deutsch</option><option value="es">Español</option><option value="fr">Français</option></select>
+      <a class="icon-btn" href="https://github.com/annmax1983/vkt-shortcut" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-1.05-.01-1.9-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0 1 12 5.96c.85 0 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg></a>
     </div>
   </div>
-  <script>
-    const I18N = {
-      zh: { tagline: '快捷键屏蔽 · 按键重映射(高级版) · 全局管控', featuresTitle: '✨ 功能特色', features: ['精准屏蔽：拦截网页内的自定义快捷键，减少与浏览器快捷键的冲突', '按键重映射：在页面内将按键 A 映射为按键 B，高级版专属能力', '全局生效：一套规则作用于所有网站，无需逐个配置', '一键录制：按下目标快捷键自动识别录入，零学习成本', '免费版20条规则满足轻度需求，高级版无限制', '全部规则存储在浏览器本地，隐私安全，不上传服务器'], thankTitle: '💌 想对你说', thank: ['感谢你使用 vkt-shortcut。做这个工具是因为在线编辑器和后台系统的快捷键经常和浏览器冲突，想要一个轻量、精准的管控工具。', '如果它也帮到了你，那对我来说就是最好的回报。', '当然，如果你愿意请我喝一杯咖啡 <span class="heart">☕</span>，我会非常开心。'], ctaHint: '点击下方按钮，跳转到支持页面', btnText: 'Support My Work', privacyPolicy: '隐私条款' },
-      en: { tagline: 'Block Shortcuts · Remap Keys (Premium) · Global Control', featuresTitle: '✨ Features', features: ['Block page-level keyboard shortcuts on any website — stop in-page hotkeys in web apps and games', 'Remap keys: map key A to key B inside the page (Premium)', 'Global rules: one set applies to every site you visit', 'One-click key recording: press the combo you want, auto-detected instantly', 'Free: 20 rules for casual use. Premium: unlimited rules + remap + import/export', 'All rules stored locally in your browser — private, no cloud sync'], thankTitle: '💌 A Note to You', thank: ['Thank you for using vkt-shortcut. I built this because web apps and admin panels constantly clash with browser shortcuts, and I wanted a precise, lightweight control tool.', 'If it helps you too, that\'s already the best reward.', 'Of course, if you\'d like to <span class="heart">☕</span> buy me a coffee, it would truly make my day.'], ctaHint: 'Click below to visit the support page', btnText: 'Support My Work', privacyPolicy: 'Privacy' },
-      ja: { tagline: 'ショートカットブロック · キーリマップ(プレミアム) · グローバル管理', featuresTitle: '✨ 機能', features: ['ウェブページ内のキーボードショートカットをサイト別にブロック', 'キーリマップ：ページ内でキーAをキーBに割り当て（プレミアム）', 'グローバルルール：すべてのサイトで有効化', 'ワンクリック録力：押したキーを自動認識', '無料20ルール、プレミアム無制限+リマップ+インポート/エクスポート', 'ローカル保存、プライバシー重視'], thankTitle: '💌 感謝', thank: ['vkt-shortcutをご利用いただきありがとうございます。', 'お役に立てれば幸いです。', 'コーヒーを一杯おごっていただけると嬉しいです。'], ctaHint: 'サポートページへ', btnText: 'Support My Work', privacyPolicy: 'プライバシー' },
-      de: { tagline: 'Shortcuts blockieren · Tasten umbinden (Premium) · Global steuern', featuresTitle: '✨ Funktionen', features: ['Tastenkürzel innerhalb von Webseiten blockieren', 'Tasten umbinden: Taste A innerhalb der Seite auf Taste B legen (Premium)', 'Globale Regeln: auf allen Seiten aktiv', 'Ein-Klick-Aufnahme: Tastenkombination sofort erkannt', 'Kostenlos 20 Regeln, Premium unbegrenzt + Remap + Import/Export', 'Lokale Speicherung, datenschutzfreundlich'], thankTitle: '💌 Danke', thank: ['Vielen Dank für vkt-shortcut.', 'Freut mich, wenn es hilft.', 'Ein Kaffee würde mich sehr freuen.'], ctaHint: 'Zur Support-Seite', btnText: 'Support My Work', privacyPolicy: 'Datenschutz' },
-      es: { tagline: 'Bloquear atajos · Remapear teclas (Premium) · Control global', featuresTitle: '✨ Características', features: ['Bloquea atajos de teclado dentro de la página, en cualquier sitio', 'Remapea teclas: asigna la tecla A a la tecla B dentro de la página (Premium)', 'Reglas globales: se activan en todos los sitios', 'Grabación con un clic: presiona la combinación, auto-detectada', 'Gratis 20 reglas, Premium ilimitado + remapeo + importar/exportar', 'Almacenamiento local, privacidad primero'], thankTitle: '💌 Gracias', thank: ['Gracias por usar vkt-shortcut.', 'Si te ayuda, es la mejor recompensa.', 'Un café me haría muy feliz.'], ctaHint: 'Ir a soporte', btnText: 'Support My Work', privacyPolicy: 'Privacidad' },
-      fr: { tagline: 'Bloquer raccourcis · Remapper touches (Premium) · Contrôle global', featuresTitle: '✨ Fonctionnalités', features: ['Bloquez les raccourcis clavier des pages, sur n\'importe quel site', 'Remappez les touches : assignez la touche A à la touche B dans la page (Premium)', 'Règles globales : actives sur tous les sites', 'Enregistrement en un clic : appuyez sur la combinaison, auto-détectée', 'Gratuit 20 règles, Premium illimité + remappage + import/export', 'Stockage local, confidentialité d\'abord'], thankTitle: '💌 Merci', thank: ['Merci d\'utiliser vkt-shortcut.', 'S\'il vous aide, c\'est la meilleure récompensation.', 'Un café me ferait très plaisir.'], ctaHint: 'Page de soutien', btnText: 'Support My Work', privacyPolicy: 'Confidentialité' }
-    };
-    function detectLang() { const c = (navigator.language || 'en').split('-')[0].toLowerCase(); return I18N[c] ? c : 'en'; }
-    function applyLang(lang) { const t = I18N[lang]; document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.getAttribute('data-i18n'); if (t[k]) el.textContent = t[k]; }); document.getElementById('featureList').innerHTML = t.features.map(f => `<li>${f}</li>`).join(''); document.getElementById('thankText').innerHTML = t.thank.map(p => `<p>${p}</p>`).join(''); document.documentElement.lang = lang; }
-    applyLang(detectLang());
-  </script>
+</header>
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow" id="i-eyebrow">Chrome &amp; Edge extension</span>
+        <h1 id="i-h1">Block Shortcuts</h1>
+        <div class="tagline" id="i-tagline"><span>Remap Keys (Premium)</span><span>Global Control</span></div>
+        <p class="lead" id="i-intro">VKT Shortcut is a keyboard shortcut manager for Chrome and Edge that blocks and remaps hotkeys on web pages. Stop a key that a site has claimed for something you never use, redirect a combination to the one your fingers already know, and keep the rule in place across tabs. Blocking is free; remapping is part of Premium. Rules apply everywhere by default or only on the sites you name, with no page reload. No account, no ads, no tracking.</p>
+        <div class="badges" id="i-badges"><span class="badge"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M8 12h8M12 8v8"/></svg>Runs locally</span><span class="badge"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M10.6 10.6a2 2 0 0 0 2.8 2.8"/><path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c5 0 9 4.5 9 7a11.7 11.7 0 0 1-2.3 3.6"/><path d="M6.2 6.2C4.2 7.7 3 9.7 3 12c0 2.5 4 7 9 7a11 11 0 0 0 4.2-.8"/></svg>No tracking</span><span class="badge"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z"/></svg>Chrome &amp; Edge</span></div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://annmax1983.com/extensions/vkt-shortcut" target="_blank" rel="noopener"><span id="i-get-label">Get the extension</span><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-secondary" href="privacy-policy.html"><span id="i-privacy-label">Privacy policy</span></a>
+          <a class="btn btn-quiet" href="https://github.com/annmax1983/vkt-shortcut" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-1.05-.01-1.9-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0 1 12 5.96c.85 0 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg><span id="i-source-label">View source</span></a>
+        </div>
+        <p class="micro" id="i-micro">Free + Premium · Chrome &amp; Edge</p>
+      </div>
+      <aside class="app-card" aria-label="VKT Shortcut">
+        <div class="app-card-glow" aria-hidden="true"></div>
+        <div class="app-icon"><img src="icons/icon128.png" alt="VKT Shortcut icon" width="108" height="108"></div>
+        <div class="app-name" id="i-app-name">VKT Shortcut</div>
+        <div class="app-sub" id="i-app-sub">Free + Premium</div>
+        <div class="app-points" id="i-app-points"><div><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Local processing</span></div><div><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>No account</span></div><div><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Optional licence</span></div></div>
+        <div class="app-footer"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z"/></svg><span id="i-app-browsers">Chrome &amp; Edge</span></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block" id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">01</p>
+        <h2 id="i-feat-title">Everything it does</h2>
+        <p id="i-feat-lead">The core features at a glance.</p>
+      </div>
+      <div class="feature-grid" id="i-features">
+<article class="feature"><span class="num">01</span><p>Block any key combination on a page, recorded by pressing it rather than typing its name.</p></article>
+<article class="feature"><span class="num">02</span><p>Remap one combination to another inside the page (Premium).</p></article>
+<article class="feature"><span class="num">03</span><p>One rule set applies everywhere by default; scope a rule to a domain and its subdomains when you need to.</p></article>
+<article class="feature"><span class="num">04</span><p>Site presets for YouTube, X, Reddit, Facebook, GitHub, Doubao, Notion and VS Code for the Web.</p></article>
+<article class="feature"><span class="num">05</span><p>Block all shortcuts per site, or on every site from the panel's global switch.</p></article>
+<article class="feature"><span class="num">06</span><p>Block-all keeps typing, arrow navigation, clipboard, undo/redo and refresh alive.</p></article>
+      </div>
+      <div class="more-panel" id="i-more-panel">
+        <h3 id="i-more-title">Also included</h3>
+        <ul class="more-list" id="i-more"><li>A plain-key rule does not fire while the cursor sits in a search box, chat input or editor.</li>
+<li>Pause rules on one site without touching the rest, or stop everything with the master switch.</li>
+<li>Up to 20 enabled rules free; Premium removes the cap and adds import and export of rules as JSON.</li>
+<li>Changes apply immediately, with no page refresh.</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="plans">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">02</p>
+        <h2 id="i-plan-title">Free vs Premium</h2>
+        <p id="i-plan-lead">The free tier is a complete tool, not a trial. Premium is optional.</p>
+      </div>
+      <div class="plans" id="i-plans">
+        <article class="plan"><div class="plan-top"><span class="plan-mark free"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Free</h3></div><p>block rules, key recording, the global default scope, per-site scoping with subdomains, all site presets, per-site and global block-all, per-site pause, the master switch, the typing guard and up to 20 enabled rules.</p></article>
+        <article class="plan premium"><div class="plan-top"><span class="plan-mark premium"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Premium</h3></div><p>unlimited enabled rules, key remapping, and import and export of all rules as one JSON file. One licence key activates on two browsers, and removing the licence from one browser frees that slot again.</p></article>
+      </div>
+      <div class="plan-note" id="i-plan-note">The free plan is a complete blocker, not a trial. Twenty enabled rules cover the presets of two or three sites, and you can swap rules whenever your work changes.</div>
+    </div>
+  </section>
+
+  <section class="block" id="privacy">
+    <div class="wrap">
+      <div class="privacy-panel">
+        <div>
+          <span class="panel-icon"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 15v2"/></svg></span>
+          <h2 id="i-priv-title">Private by design</h2>
+          <p class="panel-lead" id="i-priv-lead">Your data stays on your device. No account, no analytics, no tracking. Read exactly what is stored and when the extension uses the network.</p>
+          <div class="points" id="i-priv-points"><span class="point"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Local processing</span><span class="point"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>No account</span><span class="point"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Optional licence</span></div>
+          <a class="text-link" href="privacy-policy.html"><span id="i-priv-cta">Read the privacy policy</span><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="privacy-visual" aria-hidden="true">
+          <span class="ring one"></span><span class="ring two"></span><span class="ring three"></span>
+          <span class="lock-badge"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 15v2"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="support">
+    <div class="wrap">
+      <div class="support-card">
+        <div class="support-copy">
+          <p class="kicker" id="i-support-eyebrow">Support the developer</p>
+          <h2 id="i-support-title">💌 A Note to You</h2>
+          <div id="i-support-copy"><p>Thank you for using vkt-shortcut. I built this because web apps and admin panels constantly clash with browser shortcuts, and I wanted a precise, lightweight control tool.</p><p>If it helps you too, that's already the best reward.</p><p>Of course, if you'd like to <span class="heart">☕</span> buy me a coffee, it would truly make my day.</p></div>
+          <p class="disclaimer" id="i-support-disclaimer" hidden></p>
+        </div>
+        <div class="kofi">
+          <div class="kofi-icon"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Z"/><path d="M16 10h2a3 3 0 0 1 0 6h-2"/><path d="M7 4v2M11 4v2"/></svg></div>
+          <p id="i-support-hint">Click below to visit the support page</p>
+          <a class="btn btn-primary kofi-btn" href="https://ko-fi.com/annmax?ref=vkt-shortcut" target="_blank" rel="noopener"><span id="i-support-btn-label">Support My Work</span></a>
+          <p class="kofi-note">Ko-fi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img src="icons/icon128.png" alt="" width="30" height="30">
+      <div>VKT Shortcut<span class="copy" id="i-footer-copy">© 2026 VKT Shortcut</span></div>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="https://annmax1983.com/extensions.html" target="_blank" rel="noopener" id="i-footer-more">More extensions</a>
+      <a href="privacy-policy.html" id="i-footer-privacy">Privacy</a>
+      <a href="https://github.com/annmax1983/vkt-shortcut" target="_blank" rel="noopener" id="i-footer-github">GitHub</a>
+      <a href="https://annmax1983.com/extensions/vkt-shortcut" target="_blank" rel="noopener" id="i-footer-site">Website</a>
+      <a href="mailto:support@annmax1983.com">support@annmax1983.com</a>
+    </nav>
+  </div>
+</footer>
+<script>
+const MODEL = {"name":"VKT Shortcut","icon":"icons/icon128.png","github":"https://github.com/annmax1983/vkt-shortcut","site":"https://annmax1983.com/extensions/vkt-shortcut","support":"https://ko-fi.com/annmax?ref=vkt-shortcut","slug":"vkt-shortcut","langs":{"en":{"tagline":"Block Shortcuts · Remap Keys (Premium) · Global Control","intro":"VKT Shortcut is a keyboard shortcut manager for Chrome and Edge that blocks and remaps hotkeys on web pages. Stop a key that a site has claimed for something you never use, redirect a combination to the one your fingers already know, and keep the rule in place across tabs. Blocking is free; remapping is part of Premium. Rules apply everywhere by default or only on the sites you name, with no page reload. No account, no ads, no tracking.","why":["Block any key combination on a page, recorded by pressing it rather than typing its name.","Remap one combination to another inside the page (Premium).","One rule set applies everywhere by default; scope a rule to a domain and its subdomains when you need to.","Site presets for YouTube, X, Reddit, Facebook, GitHub, Doubao, Notion and VS Code for the Web.","Block all shortcuts per site, or on every site from the panel's global switch.","Block-all keeps typing, arrow navigation, clipboard, undo/redo and refresh alive.","A plain-key rule does not fire while the cursor sits in a search box, chat input or editor.","Pause rules on one site without touching the rest, or stop everything with the master switch.","Up to 20 enabled rules free; Premium removes the cap and adds import and export of rules as JSON.","Changes apply immediately, with no page refresh."],"plan":{"free":"Free: block rules, key recording, the global default scope, per-site scoping with subdomains, all site presets, per-site and global block-all, per-site pause, the master switch, the typing guard and up to 20 enabled rules.","premium":"Premium (optional licence): unlimited enabled rules, key remapping, and import and export of all rules as one JSON file. One licence key activates on two browsers, and removing the licence from one browser frees that slot again.","note":"The free plan is a complete blocker, not a trial. Twenty enabled rules cover the presets of two or three sites, and you can swap rules whenever your work changes."},"thankTitle":"💌 A Note to You","thank":["Thank you for using vkt-shortcut. I built this because web apps and admin panels constantly clash with browser shortcuts, and I wanted a precise, lightweight control tool.","If it helps you too, that's already the best reward.","Of course, if you'd like to \u003cspan class=\"heart\"\u003e☕\u003c/span\u003e buy me a coffee, it would truly make my day."],"disclaimer":"","ctaHint":"Click below to visit the support page","btnText":"Support My Work","ui":{"navFeatures":"Features","navPlans":"Free & Premium","navPrivacy":"Privacy","navSupport":"Support","eyebrow":"Chrome & Edge extension","badgeFree":"Free + Premium","badgeLocal":"Runs locally","badgeNoTrack":"No tracking","badgeBrowsers":"Chrome & Edge","ctaGet":"Get the extension","ctaPrivacy":"Privacy policy","ctaSource":"View source","featuresTitle":"Everything it does","featuresLead":"The core features at a glance.","moreTitle":"Also included","proLabel":"Premium","freeLabel":"Free","premiumLabel":"Premium","planTitle":"Free vs Premium","planLead":"The free tier is a complete tool, not a trial. Premium is optional.","privacyTitle":"Private by design","privacyLead":"Your data stays on your device. No account, no analytics, no tracking. Read exactly what is stored and when the extension uses the network.","privacyPoints":["Local processing","No account","Optional licence"],"privacyCta":"Read the privacy policy","supportEyebrow":"Support the developer","supportHint":"If this extension helps you, you can buy me a coffee.","footerMore":"More extensions","footerPrivacy":"Privacy","footerGithub":"GitHub","footerSite":"Website"}},"zh":{"tagline":"快捷键屏蔽 · 按键重映射(高级版) · 全局管控","intro":"VKT Shortcut 是一款面向 Chrome 与 Edge 的键盘快捷键管理器，能屏蔽并重映射网页上的热键。某个网站占用了你从不使用的按键？让它停下。想把一个组合键改成手指已经熟悉的另一个？交给它。规则跨标签页持续生效。屏蔽功能免费，重映射属于高级版。规则默认在所有网站生效，也可以只在指定站点生效，无需刷新页面。无需账号，没有广告，也没有追踪。","why":["屏蔽页面上任意按键组合，按下即可录制，不用输入键名。","在页面内把一个组合键重映射为另一个（高级版）。","规则默认全局生效；需要时可限定到某个域名及其子域名。","内置 YouTube、X、Reddit、Facebook、GitHub、豆包、Notion 和网页版 VS Code 的站点预设。","按站点「全部屏蔽」，或用面板上的全局开关在所有站点一起屏蔽。","全部屏蔽不会影响输入、方向键导航、剪贴板、撤销重做和刷新。","单键规则在搜索框、聊天输入框或编辑器中不会触发。","单独暂停某个站点的规则，不影响其他站点；总开关可以一次停掉全部。","免费最多 20 条启用规则；高级版解除上限，并支持规则的 JSON 导入导出。","改动立即生效，无需刷新页面。"],"plan":{"free":"免费：屏蔽规则、按键录制、全局默认范围、按站点及子域名限定范围、全部站点预设、按站点与全局的全部屏蔽、单站暂停、总开关、输入保护，以及最多 20 条启用规则。","premium":"高级版（可选授权）：不限启用规则数量、按键重映射，以及把所有规则导出/导入为一个 JSON 文件。一个授权可在两个浏览器上激活，从其中一个移除后名额会释放。","note":"免费版是完整的屏蔽器，不是试用版。20 条启用规则足以覆盖两三个站点的预设，工作变化时随时可以替换规则。"},"thankTitle":"💌 想对你说","thank":["感谢你使用 vkt-shortcut。做这个工具是因为在线编辑器和后台系统的快捷键经常和浏览器冲突，想要一个轻量、精准的管控工具。","如果它也帮到了你，那对我来说就是最好的回报。","当然，如果你愿意请我喝一杯咖啡 \u003cspan class=\"heart\"\u003e☕\u003c/span\u003e，我会非常开心。"],"disclaimer":"","ctaHint":"点击下方按钮，跳转到支持页面","btnText":"Support My Work","ui":{"navFeatures":"功能","navPlans":"免费与高级版","navPrivacy":"隐私","navSupport":"支持","eyebrow":"Chrome 与 Edge 扩展","badgeFree":"免费 + 高级版","badgeLocal":"本地运行","badgeNoTrack":"无追踪","badgeBrowsers":"Chrome 与 Edge","ctaGet":"获取扩展","ctaPrivacy":"隐私政策","ctaSource":"查看源码","featuresTitle":"全部功能","featuresLead":"核心功能一览。","moreTitle":"还包括","proLabel":"高级版","freeLabel":"免费版","premiumLabel":"高级版","planTitle":"免费版与高级版","planLead":"免费版是完整工具，不是试用版。高级功能完全可选。","privacyTitle":"隐私优先","privacyLead":"你的数据留在设备上。无需账号，没有统计，没有追踪。了解具体存储了什么，以及扩展何时联网。","privacyPoints":["本地处理","无需账号","授权可选"],"privacyCta":"阅读隐私政策","supportEyebrow":"支持开发者","supportHint":"如果这个扩展对你有帮助，可以请我喝杯咖啡。","footerMore":"更多扩展","footerPrivacy":"隐私","footerGithub":"GitHub","footerSite":"官网"}},"ja":{"tagline":"ショートカットブロック · キーリマップ(プレミアム) · グローバル管理","intro":"VKT Shortcut は Chrome と Edge 向けのキーボードショートカット管理ツールで、Web ページのホットキーをブロックしたり再割り当てしたりできます。サイトが自分では使わないキーを占有している？それを止められます。すでに指が覚えている組み合わせに変えたい？それもできます。ルールはタブをまたいで有効なままです。ブロックは無料、再割り当てはプレミアムの機能です。ルールは既定ですべてのサイトに適用され、指定したサイトだけに限定することもでき、ページの再読み込みは不要です。アカウント不要、広告なし、トラッキングなし。","why":["ページ上の任意のキー組み合わせをブロック。キー名を入力するのではなく、押して記録します。","ページ内で 1 つの組み合わせを別の組み合わせに再割り当て（プレミアム）。","ルールは既定でどこでも適用。必要ならドメインとそのサブドメインに限定できます。","YouTube、X、Reddit、Facebook、GitHub、豆包、Notion、Web 版 VS Code のサイトプリセットを内蔵。","サイトごとに「すべてブロック」、またはパネルのグローバルスイッチですべてのサイトをまとめてブロック。","すべてブロックでも、入力、矢印ナビゲーション、クリップボード、元に戻す・やり直し、再読み込みは生きています。","単一キーのルールは、検索ボックス、チャット入力、エディターにカーソルがある間は発動しません。","1 つのサイトだけルールを一時停止し、ほかはそのまま。マスタースイッチで全部止めることもできます。","無料では有効なルールを 20 件まで。プレミアムは上限をなくし、ルールの JSON 入出力を追加します。","変更はページを再読み込みせずにすぐ反映されます。"],"plan":{"free":"無料：ブロックルール、キー記録、グローバル既定スコープ、サブドメインを含むサイト別スコープ、すべてのサイトプリセット、サイト別およびグローバルのすべてブロック、サイト別一時停止、マスタースイッチ、入力ガード、有効ルール 20 件まで。","premium":"プレミアム（任意のライセンス）：有効ルール無制限、キーの再割り当て、すべてのルールを 1 つの JSON ファイルとして入出力。ライセンスキー 1 本で 2 つのブラウザに有効化でき、片方から削除するとその枠が空きます。","note":"無料プランは試用版ではなく、完全なブロッカーです。有効ルール 20 件で 2〜3 サイト分のプリセットをまかなえ、仕事が変わればいつでも入れ替えられます。"},"thankTitle":"💌 感謝","thank":["vkt-shortcutをご利用いただきありがとうございます。","お役に立てれば幸いです。","コーヒーを一杯おごっていただけると嬉しいです。"],"disclaimer":"","ctaHint":"サポートページへ","btnText":"Support My Work","ui":{"navFeatures":"機能","navPlans":"無料とPremium","navPrivacy":"プライバシー","navSupport":"サポート","eyebrow":"Chrome & Edge 拡張機能","badgeFree":"無料 + Premium","badgeLocal":"端末上で動作","badgeNoTrack":"トラッキングなし","badgeBrowsers":"Chrome & Edge","ctaGet":"拡張機能を入手","ctaPrivacy":"プライバシーポリシー","ctaSource":"ソースを見る","featuresTitle":"すべての機能","featuresLead":"主な機能を一覧で。","moreTitle":"その他の機能","proLabel":"Premium","freeLabel":"無料版","premiumLabel":"Premium","planTitle":"無料版とPremium","planLead":"無料版は試用版ではなく、完成したツールです。Premium は任意です。","privacyTitle":"プライバシー優先","privacyLead":"データは端末上に残ります。アカウント、分析、トラッキングはありません。何が保存され、いつ通信するかを確認できます。","privacyPoints":["端末内で処理","アカウント不要","ライセンスは任意"],"privacyCta":"プライバシーポリシーを読む","supportEyebrow":"開発者を支援","supportHint":"この拡張機能が役に立ったら、コーヒーをごちそうしてください。","footerMore":"他の拡張機能","footerPrivacy":"プライバシー","footerGithub":"GitHub","footerSite":"公式サイト"}},"de":{"tagline":"Shortcuts blockieren · Tasten umbinden (Premium) · Global steuern","intro":"VKT Shortcut ist eine Tastenkürzel-Verwaltung für Chrome und Edge, die Hotkeys auf Webseiten blockiert und umbelegt. Stoppen Sie eine Taste, die eine Website für etwas beansprucht, das Sie nie nutzen, und leiten Sie eine Kombination auf die um, die Ihre Finger kennen. Blockieren ist kostenlos, Umbelegen gehört zu Premium. Regeln gelten überall oder nur auf genannten Websites und greifen ohne Neuladen. Kein Konto, keine Werbung, kein Tracking.","why":["Jede Tastenkombination blockieren, aufgezeichnet durch Drücken statt durch Eintippen.","Eine Kombination auf eine andere umbelegen (Premium).","Standardmäßig überall gültig; eine Regel lässt sich auf eine Domain samt Subdomains begrenzen.","Website-Voreinstellungen für YouTube, X, Reddit, Facebook, GitHub, Doubao, Notion und VS Code im Web.","Alle Shortcuts pro Website blockieren oder über den globalen Schalter im Panel auf allen Websites.","Alles-blockieren lässt Tippen, Pfeile, Zwischenablage, Rückgängig/Wiederholen und Aktualisieren weiterlaufen.","Eine Regel auf eine einzelne Taste greift nicht, während der Cursor in einem Suchfeld, Chat oder Editor steht.","Regeln auf einer Website pausieren, ohne die übrigen anzutasten, oder mit dem Hauptschalter alles anhalten.","Kostenlos bis zu 20 aktive Regeln; Premium hebt die Grenze auf und ergänzt Import und Export als JSON.","Änderungen greifen sofort, ohne Neuladen."],"plan":{"free":"Kostenlos: Blockregeln, Tastenaufzeichnung, globaler Standardbereich, Begrenzung auf eine Website samt Subdomains, alle Voreinstellungen, Alles-blockieren pro Website und global, Pause pro Website, Hauptschalter, Tippschutz und bis zu 20 aktive Regeln.","premium":"Premium (optionale Lizenz): unbegrenzte aktive Regeln, Umbelegen sowie Import und Export aller Regeln als eine JSON-Datei. Ein Lizenzschlüssel gilt für zwei Browser; entfernen Sie ihn in einem, wird der Platz wieder frei.","note":"Der Gratisplan ist ein vollständiger Blocker, keine Testversion. Zwanzig Regeln decken die Voreinstellungen von zwei oder drei Websites ab und lassen sich jederzeit tauschen."},"thankTitle":"💌 Danke","thank":["Vielen Dank für vkt-shortcut.","Freut mich, wenn es hilft.","Ein Kaffee würde mich sehr freuen."],"disclaimer":"","ctaHint":"Zur Support-Seite","btnText":"Support My Work","ui":{"navFeatures":"Funktionen","navPlans":"Free & Premium","navPrivacy":"Datenschutz","navSupport":"Support","eyebrow":"Chrome- und Edge-Erweiterung","badgeFree":"Free + Premium","badgeLocal":"Läuft lokal","badgeNoTrack":"Kein Tracking","badgeBrowsers":"Chrome & Edge","ctaGet":"Erweiterung holen","ctaPrivacy":"Datenschutzerklärung","ctaSource":"Quellcode ansehen","featuresTitle":"Alle Funktionen","featuresLead":"Die wichtigsten Funktionen im Überblick.","moreTitle":"Außerdem","proLabel":"Premium","freeLabel":"Free","premiumLabel":"Premium","planTitle":"Free vs. Premium","planLead":"Die kostenlose Version ist ein vollständiges Werkzeug, keine Testversion. Premium ist optional.","privacyTitle":"Privat by Design","privacyLead":"Deine Daten bleiben auf deinem Gerät. Kein Konto, keine Analyse, kein Tracking. Lies genau, was gespeichert wird und wann die Erweiterung das Netz nutzt.","privacyPoints":["Lokale Verarbeitung","Kein Konto","Lizenz optional"],"privacyCta":"Datenschutzerklärung lesen","supportEyebrow":"Unterstütze die Entwicklung","supportHint":"Wenn dir die Erweiterung hilft, spendier mir einen Kaffee.","footerMore":"Weitere Erweiterungen","footerPrivacy":"Datenschutz","footerGithub":"GitHub","footerSite":"Website"}},"es":{"tagline":"Bloquear atajos · Remapear teclas (Premium) · Control global","intro":"VKT Shortcut es un gestor de atajos de teclado para Chrome y Edge que bloquea y reasigna combinaciones en páginas web. Detén una tecla que un sitio ha reservado para algo que nunca usas y redirige una combinación a la que tus dedos ya conocen. Bloquear es gratis; reasignar forma parte de Premium. Las reglas se aplican en todas partes por defecto o solo en los sitios que indiques, y surten efecto sin recargar la página. Sin cuenta, sin anuncios, sin seguimiento.","why":["Bloquea cualquier combinación en una página, grabada pulsándola en lugar de escribir su nombre.","Reasigna una combinación a otra dentro de la página (Premium).","Válido en todas partes por defecto; una regla puede limitarse a un dominio y sus subdominios.","Ajustes predefinidos para YouTube, X, Reddit, Facebook, GitHub, Doubao, Notion y VS Code en la web.","Bloquea todos los atajos de un sitio, o de todos los sitios con el interruptor global del panel.","El bloqueo total mantiene escribir, flechas, portapapeles, deshacer/rehacer y recargar.","Una regla sobre una tecla simple no se activa mientras el cursor está en un buscador, un chat o un editor.","Pausa las reglas en un sitio sin tocar las demás, o detén todo con el interruptor principal.","Hasta 20 reglas activas gratis; Premium quita el límite y añade importar y exportar reglas en JSON.","Los cambios se aplican al instante, sin recargar."],"plan":{"free":"Gratis: reglas de bloqueo, grabación de teclas, alcance global por defecto, alcance por sitio con subdominios, todos los ajustes predefinidos, bloqueo total por sitio y global, pausa por sitio, interruptor principal, protección al escribir y hasta 20 reglas activas.","premium":"Premium (licencia opcional): reglas activas ilimitadas, reasignación de teclas e importación y exportación de todas las reglas en un archivo JSON. Una clave de licencia se activa en dos navegadores, y quitar la licencia de uno libera esa plaza.","note":"El plan gratis es un bloqueador completo, no una prueba. Veinte reglas cubren dos o tres sitios y puedes cambiarlas cuando cambie tu trabajo."},"thankTitle":"💌 Gracias","thank":["Gracias por usar vkt-shortcut.","Si te ayuda, es la mejor recompensa.","Un café me haría muy feliz."],"disclaimer":"","ctaHint":"Ir a soporte","btnText":"Support My Work","ui":{"navFeatures":"Funciones","navPlans":"Gratis y Premium","navPrivacy":"Privacidad","navSupport":"Apoyo","eyebrow":"Extensión para Chrome y Edge","badgeFree":"Gratis + Premium","badgeLocal":"Se ejecuta en local","badgeNoTrack":"Sin rastreo","badgeBrowsers":"Chrome y Edge","ctaGet":"Obtener la extensión","ctaPrivacy":"Política de privacidad","ctaSource":"Ver el código","featuresTitle":"Todo lo que hace","featuresLead":"Las funciones principales de un vistazo.","moreTitle":"También incluye","proLabel":"Premium","freeLabel":"Gratis","premiumLabel":"Premium","planTitle":"Gratis vs Premium","planLead":"La versión gratuita es una herramienta completa, no una prueba. Premium es opcional.","privacyTitle":"Privacidad por diseño","privacyLead":"Tus datos se quedan en tu dispositivo. Sin cuenta, sin analíticas y sin rastreo. Consulta qué se guarda y cuándo usa la red la extensión.","privacyPoints":["Procesamiento local","Sin cuenta","Licencia opcional"],"privacyCta":"Leer la política de privacidad","supportEyebrow":"Apoya al desarrollador","supportHint":"Si la extensión te resulta útil, invítame a un café.","footerMore":"Más extensiones","footerPrivacy":"Privacidad","footerGithub":"GitHub","footerSite":"Sitio web"}},"fr":{"tagline":"Bloquer raccourcis · Remapper touches (Premium) · Contrôle global","intro":"VKT Shortcut est un gestionnaire de raccourcis clavier pour Chrome et Edge qui bloque et remappe les raccourcis des pages web. Un site a accaparé une touche dont vous ne vous servez jamais ? Faites-la taire. Vous voulez transformer une combinaison en celle que vos doigts connaissent déjà ? C'est possible. Les règles restent en place d'un onglet à l'autre. Le blocage est gratuit ; le remappage fait partie de Premium. Les règles s'appliquent partout par défaut ou seulement aux sites que vous nommez, sans recharger la page. Sans compte, sans publicité, sans traçage.","why":["Bloquez n'importe quelle combinaison sur une page, enregistrée en appuyant dessus plutôt qu'en tapant son nom.","Remappez une combinaison vers une autre dans la page (Premium).","Un jeu de règles s'applique partout par défaut ; limitez une règle à un domaine et ses sous-domaines au besoin.","Préréglages pour YouTube, X, Reddit, Facebook, GitHub, Doubao, Notion et VS Code pour le Web.","Bloquez tous les raccourcis par site, ou sur tous les sites depuis l'interrupteur global du panneau.","Le blocage total préserve la saisie, la navigation par flèches, le presse-papiers, l'annulation/rétablissement et le rechargement.","Une règle sur une touche seule ne se déclenche pas quand le curseur est dans une recherche, un champ de discussion ou un éditeur.","Mettez les règles en pause sur un site sans toucher aux autres, ou arrêtez tout avec l'interrupteur principal.","Jusqu'à 20 règles actives gratuitement ; Premium supprime la limite et ajoute l'import et l'export des règles en JSON.","Les changements s'appliquent immédiatement, sans recharger la page."],"plan":{"free":"Gratuit : règles de blocage, enregistrement des touches, portée globale par défaut, portée par site avec sous-domaines, tous les préréglages de sites, blocage total par site et global, pause par site, interrupteur principal, protection de la saisie et jusqu'à 20 règles actives.","premium":"Premium (licence facultative) : règles actives illimitées, remappage des touches et import/export de toutes les règles dans un seul fichier JSON. Une clé de licence s'active sur deux navigateurs ; la retirer de l'un libère cette place.","note":"L'offre gratuite est un bloqueur complet, pas un essai. Vingt règles actives couvrent les préréglages de deux ou trois sites, et vous pouvez échanger les règles quand votre travail change."},"thankTitle":"💌 Merci","thank":["Merci d'utiliser vkt-shortcut.","S'il vous aide, c'est la meilleure récompensation.","Un café me ferait très plaisir."],"disclaimer":"","ctaHint":"Page de soutien","btnText":"Support My Work","ui":{"navFeatures":"Fonctionnalités","navPlans":"Gratuit et Premium","navPrivacy":"Confidentialité","navSupport":"Soutien","eyebrow":"Extension Chrome et Edge","badgeFree":"Gratuit + Premium","badgeLocal":"Fonctionne en local","badgeNoTrack":"Aucun suivi","badgeBrowsers":"Chrome et Edge","ctaGet":"Obtenir l’extension","ctaPrivacy":"Politique de confidentialité","ctaSource":"Voir le code","featuresTitle":"Toutes les fonctionnalités","featuresLead":"Les fonctions essentielles en un coup d'œil.","moreTitle":"Également inclus","proLabel":"Premium","freeLabel":"Gratuit","premiumLabel":"Premium","planTitle":"Gratuit vs Premium","planLead":"La version gratuite est un outil complet, pas une version d'essai. Premium est facultatif.","privacyTitle":"Confidentiel par conception","privacyLead":"Vos données restent sur votre appareil. Sans compte, sans analyse, sans suivi. Découvrez ce qui est stocké et quand l'extension utilise le réseau.","privacyPoints":["Traitement local","Sans compte","Licence facultative"],"privacyCta":"Lire la politique de confidentialité","supportEyebrow":"Soutenir le développeur","supportHint":"Si l'extension vous aide, offrez-moi un café.","footerMore":"Plus d'extensions","footerPrivacy":"Confidentialité","footerGithub":"GitHub","footerSite":"Site web"}}}};
+const LANG_KEY = "vkt-vkt-shortcut-lang";
+(function () {
+  "use strict";
+
+  var select = document.getElementById("i-lang");
+
+  function esc(value) {
+    return String(value == null ? "" : value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function setText(id, value) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = value == null ? "" : value;
+  }
+
+  function detect() {
+    var codes = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
+    for (var i = 0; i < codes.length; i++) {
+      var code = String(codes[i] || "").toLowerCase();
+      if (code.indexOf("zh") === 0) return "zh";
+      if (code.indexOf("ja") === 0) return "ja";
+      if (code.indexOf("de") === 0) return "de";
+      if (code.indexOf("es") === 0) return "es";
+      if (code.indexOf("fr") === 0) return "fr";
+      if (code.indexOf("en") === 0) return "en";
+    }
+    return "en";
+  }
+
+  function stripLead(value) {
+    var text = String(value == null ? "" : value);
+    var match = text.match(/^([^:：]{1,70})[:：]\s*/);
+    if (match && /(free|gratis|kostenlos|gratuit|無料|免费|免費|premium|pro\b|payant|kostenpflichtig|プレミアム|有料|高级|高級|付费|付費|licen|lizenz|licencia|licence|授权|授權|ライセンス)/i.test(match[1])) {
+      return text.slice(match[0].length);
+    }
+    return text;
+  }
+
+  function sentence(value) {
+    var text = String(value == null ? "" : value);
+    return /^[a-z]/.test(text) ? text.charAt(0).toUpperCase() + text.slice(1) : text;
+  }
+
+  function cleanNote(value) {
+    var text = String(value == null ? "" : value).trim();
+    if (/^(HOW IT WORKS|SO FUNKTIONIERT ES|CÓMO FUNCIONA|COMMENT ÇA MARCHE|使用方法|使い方)$/i.test(text)) return "";
+    return text;
+  }
+
+  var iconCheck = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+  var iconLocal = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M8 12h8M12 8v8"/></svg>';
+  var iconEye = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M10.6 10.6a2 2 0 0 0 2.8 2.8"/><path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c5 0 9 4.5 9 7a11.7 11.7 0 0 1-2.3 3.6"/><path d="M6.2 6.2C4.2 7.7 3 9.7 3 12c0 2.5 4 7 9 7a11 11 0 0 0 4.2-.8"/></svg>';
+  var iconGlobe = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z"/></svg>';
+  var iconCoffee = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Z"/><path d="M16 10h2a3 3 0 0 1 0 6h-2"/><path d="M7 4v2M11 4v2"/></svg>';
+
+  function render(lang) {
+    var data = MODEL.langs[lang];
+    if (!data) return;
+    var u = data.ui;
+
+    document.documentElement.lang = lang === "zh" ? "zh-CN" : lang;
+
+    var parts = String(data.tagline || "").split("·").map(function (part) { return part.trim(); }).filter(Boolean);
+    var headline = parts.length ? parts.shift() : MODEL.name;
+
+    document.title = MODEL.name + " — " + headline;
+    var meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute("content", data.intro.slice(0, 158));
+
+    setText("i-nav-features", u.navFeatures);
+    setText("i-nav-plans", u.navPlans);
+    setText("i-nav-privacy", u.navPrivacy);
+    setText("i-nav-support", u.navSupport);
+    setText("i-eyebrow", u.eyebrow);
+    setText("i-h1", headline);
+    setText("i-intro", data.intro);
+    setText("i-get-label", u.ctaGet);
+    setText("i-privacy-label", u.ctaPrivacy);
+    setText("i-source-label", u.ctaSource);
+    setText("i-micro", u.badgeFree + " · " + u.badgeBrowsers);
+
+    var tagline = document.getElementById("i-tagline");
+    if (tagline) {
+      tagline.innerHTML = parts.map(function (part) { return "<span>" + esc(part) + "</span>"; }).join("");
+    }
+
+    var badges = document.getElementById("i-badges");
+    if (badges) {
+      badges.innerHTML = [
+        [iconLocal, u.badgeLocal],
+        [iconEye, u.badgeNoTrack],
+        [iconGlobe, u.badgeBrowsers]
+      ].map(function (item) {
+        return '<span class="badge">' + item[0] + esc(item[1]) + "</span>";
+      }).join("");
+    }
+
+    setText("i-app-name", MODEL.name);
+    setText("i-app-sub", u.badgeFree);
+    setText("i-app-browsers", u.badgeBrowsers);
+    var appPoints = document.getElementById("i-app-points");
+    if (appPoints) {
+      appPoints.innerHTML = u.privacyPoints.map(function (point) {
+        return "<div>" + iconCheck + "<span>" + esc(point) + "</span></div>";
+      }).join("");
+    }
+
+    setText("i-feat-title", u.featuresTitle);
+    setText("i-feat-lead", u.featuresLead);
+    setText("i-more-title", u.moreTitle);
+
+    var primary = data.why.slice(0, 6);
+    var extra = data.why.slice(6);
+    var featureGrid = document.getElementById("i-features");
+    if (featureGrid) {
+      featureGrid.innerHTML = primary.map(function (text, index) {
+        return '<article class="feature"><span class="num">' + String(index + 1).padStart(2, "0") + "</span><p>" + esc(text) + "</p></article>";
+      }).join("");
+    }
+
+    var morePanel = document.getElementById("i-more-panel");
+    var moreList = document.getElementById("i-more");
+    if (morePanel && moreList) {
+      if (extra.length) {
+        morePanel.hidden = false;
+        moreList.innerHTML = extra.map(function (text) { return "<li>" + esc(text) + "</li>"; }).join("");
+      } else {
+        morePanel.hidden = true;
+      }
+    }
+
+    setText("i-plan-title", u.planTitle);
+    setText("i-plan-lead", u.planLead);
+    var plans = document.getElementById("i-plans");
+    if (plans) {
+      plans.innerHTML =
+        '<article class="plan"><div class="plan-top"><span class="plan-mark free">' + iconCheck + "</span><h3>" + esc(u.freeLabel) + "</h3></div><p>" + esc(sentence(stripLead(data.plan.free))) + "</p></article>" +
+        '<article class="plan premium"><div class="plan-top"><span class="plan-mark premium">' + iconCheck + "</span><h3>" + esc(u.premiumLabel) + "</h3></div><p>" + esc(sentence(stripLead(data.plan.premium))) + "</p></article>";
+    }
+
+    var note = cleanNote(data.plan.note);
+    var planNote = document.getElementById("i-plan-note");
+    if (planNote) {
+      planNote.hidden = !note;
+      planNote.textContent = note;
+    }
+
+    setText("i-priv-title", u.privacyTitle);
+    setText("i-priv-lead", u.privacyLead);
+    setText("i-priv-cta", u.privacyCta);
+    var points = document.getElementById("i-priv-points");
+    if (points) {
+      points.innerHTML = u.privacyPoints.map(function (point) {
+        return '<span class="point">' + iconCheck + esc(point) + "</span>";
+      }).join("");
+    }
+
+    setText("i-support-eyebrow", u.supportEyebrow);
+    setText("i-support-title", data.thankTitle);
+    var copy = document.getElementById("i-support-copy");
+    if (copy) {
+      copy.innerHTML = data.thank.map(function (paragraph) { return "<p>" + paragraph + "</p>"; }).join("");
+    }
+    var hint = document.getElementById("i-support-hint");
+    if (hint) {
+      hint.hidden = !data.ctaHint;
+      hint.textContent = data.ctaHint || "";
+    }
+    setText("i-support-btn-label", data.btnText || "Buy Me a Coffee");
+    var disclaimer = document.getElementById("i-support-disclaimer");
+    if (disclaimer) {
+      disclaimer.hidden = !data.disclaimer;
+      disclaimer.textContent = data.disclaimer || "";
+    }
+
+    setText("i-footer-more", u.footerMore);
+    setText("i-footer-privacy", u.footerPrivacy);
+    setText("i-footer-github", u.footerGithub);
+    setText("i-footer-site", u.footerSite);
+    setText("i-footer-copy", "© 2026 " + MODEL.name);
+  }
+
+  function storedLang() {
+    try { return localStorage.getItem(LANG_KEY); } catch (error) { return null; }
+  }
+
+  function remember(lang) {
+    try { localStorage.setItem(LANG_KEY, lang); } catch (error) { /* storage can be blocked */ }
+  }
+
+  if (select) {
+    var saved = storedLang();
+    var initial = saved && MODEL.langs[saved] ? saved : detect();
+    if (!MODEL.langs[initial]) initial = "en";
+    select.value = initial;
+    if (initial !== "en") render(initial);
+    select.addEventListener("change", function () {
+      remember(select.value);
+      render(select.value);
+    });
+  }
+})();
+
+</script>
 </body>
 </html>
