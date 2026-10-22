@@ -18,7 +18,7 @@ La mayoría de bloqueadores de atajos solo bloquean teclas — no pueden reasign
 | 🔁 **Reasignar teclas** | Redirige una combinación de teclas a otra dentro de la página — poco común en herramientas similares (Premium) |
 | 🌐 **Reglas globales + por sitio** | Las reglas se aplican en todos los sitios web por defecto; opcionalmente limita una regla a un sitio (subdominios incluidos) |
 | ⌨️ **Grabación de teclas** | Pulsa la combinación directamente — se captura automáticamente |
-| ⚡ **Preajustes por sitio** | Reglas de bloqueo con un clic para conflictos conocidos en sitios populares — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (votos A/Z, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), el Ctrl+J de Doubao, el Ctrl+P/J de Notion, el Ctrl+P/J de VS Code Web. Todos los sitios compatibles aparecen en el panel, sin tener que visitarlos antes. Cada tecla del preajuste crea una regla, así que se aplica el límite de 20 reglas del plan gratuito |
+| ⚡ **Preajustes por sitio** | Reglas de bloqueo con un clic para conflictos conocidos en sitios populares — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (votos A/Z, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), el Ctrl+J de Doubao, el Ctrl+P/J de Notion, el Ctrl+P/J de VS Code Web. Todos los sitios compatibles aparecen en el panel, sin tener que visitarlos antes. Cada tecla del preajuste crea una regla, y puedes editarla o borrarla por separado |
 | 🔇 **Bloquear todos los atajos** | Un interruptor por sitio que neutraliza cada atajo de la página, más un interruptor global en la parte superior del panel para todos los sitios a la vez (escribir, las flechas, el portapapeles y recargar siguen funcionando; la pausa por sitio tiene prioridad) |
 | 📤 **Importar / Exportar** | Respaldo y restauración de reglas como JSON (Premium) |
 
@@ -28,10 +28,10 @@ La mayoría de bloqueadores de atajos solo bloquean teclas — no pueden reasign
 
 | Plan | Funcionalidades |
 |------|----------|
-| **Gratis** | Bloquear atajos, grabación de teclas, interruptor global, hasta 20 reglas activas |
-| **⭐ Premium** | Reglas ilimitadas, reasignación de teclas, importar/exportar JSON, soporte prioritario |
+| **Gratis** | Bloquear atajos, grabación de teclas, interruptor global, ajustes, import/export, reglas ilimitadas |
+| **⭐ Premium** | Reasignación de teclas, sincronización entre dispositivos (cuenta del navegador), soporte prioritario |
 
-Todas las funcionalidades principales (bloquear, grabar) son gratuitas para siempre. La **Reasignación de teclas** y **Importar/Exportar** requieren una licencia VKT Premium.
+Bloquear, grabar, ajustes e import/export son gratis para siempre y sin límite de reglas. La **reasignación de teclas** y la **sincronización entre dispositivos** requieren una licencia VKT Premium.
 
 - ⚙ Activarla: abre el panel lateral de vkt-shortcut → haz clic en el botón **⚙** → introduce tu clave de licencia.
 

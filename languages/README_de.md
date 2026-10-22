@@ -28,20 +28,18 @@ Eine schlanke Browser-Erweiterung zum Blockieren und Umbelegen von Tastenkürzel
 | Tasten blockieren | Tastenkürzel innerhalb von Webseiten abfangen und deaktivieren |
 | Tastenerkennung | Gewünschte Kombination einfach drücken – wird automatisch erfasst |
 | Geltungsbereich | Standardmäßig auf allen Websites; optional auf eine Website beschränkbar (Subdomains inklusive) |
-| Website-Voreinstellungen | Ein-Klick-Blockregeln für bekannte Konflikte auf beliebten Websites — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (A/Z-Stimmen, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), Doubaos Ctrl+J, Notions Ctrl+P/J, VS Code Webs Ctrl+P/J. Alle unterstützten Websites stehen direkt im Panel, ohne dass Sie sie erst besuchen müssen. Jede Preset-Taste wird eine eigene Regel; das Gratis-Limit von 20 Regeln gilt |
+| Website-Voreinstellungen | Ein-Klick-Blockregeln für bekannte Konflikte auf beliebten Websites — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (A/Z-Stimmen, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), Doubaos Ctrl+J, Notions Ctrl+P/J, VS Code Webs Ctrl+P/J. Alle unterstützten Websites stehen direkt im Panel, ohne dass Sie sie erst besuchen müssen. Jede Preset-Taste wird eine eigene Regel; lässt sich einzeln bearbeiten oder löschen |
 | Alle Kürzel blockieren | Ein Schalter pro Website, der jedes Seiten-Kürzel außer Kraft setzt, plus ein globaler Schalter oben im Side Panel für alle Websites auf einmal (Eingabe, Tastaturnavigation, Zwischenablage und Neu laden funktionieren weiterhin; die Website-Pause hat Vorrang) |
 | Globaler Schalter | Alle Regeln mit einem Klick aktivieren/deaktivieren |
-| Bis zu 20 aktive Regeln | Die Gratisversion unterstützt 20 gleichzeitig aktive Regeln – deaktivierte zählen nicht mit |
+| Regeln | Unbegrenzt, aktiv oder inaktiv |
 
 ### ⭐ Premium (per Lizenz freigeschaltet)
 
 | Funktion | Beschreibung |
 |---|---|
-| **Unbegrenzte Regeln** | Keine Obergrenze bei der Anzahl der Regeln |
 | **Tasten umbelegen** | Taste A wirken lassen wie Taste B |
-| **Import/Export** | Regeln als JSON sichern und wiederherstellen |
-| **Prioritäts-Support** | Schnellere Antworten für Lizenzkunden |
-
+| **Geräteübergreifender Sync** | Regeln über das angemeldete Browser-Konto abgleichen (ohne unsere Server) |
+| **Prioritäts-Support** | Bevorzugte Unterstützung |
 ---
 
 ## Anwendungsfälle

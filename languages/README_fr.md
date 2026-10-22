@@ -18,7 +18,7 @@ La plupart des bloqueurs de raccourcis ne font que bloquer — ils ne peuvent pa
 | 🔁 **Redéfinir des touches** | Redirigez une combinaison vers une autre dans la page (Premium) |
 | 🌐 **Règles globales + par site** | Les règles s'appliquent sur chaque site par défaut ; limitez optionnellement une règle à un seul site (sous-domaines inclus) |
 | ⌨️ **Enregistrement de touches** | Appuyez directement sur la combinaison — capturée automatiquement |
-| ⚡ **Préréglages par site** | Règles de blocage en un clic pour les conflits connus sur les sites populaires — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (votes A/Z, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), le Ctrl+J de Doubao, le Ctrl+P/J de Notion, le Ctrl+P/J de VS Code Web. Tous les sites pris en charge sont listés dans le panneau, sans avoir à les visiter d'abord. Chaque touche du préréglage devient une règle : la limite de 20 règles de la version gratuite s'applique |
+| ⚡ **Préréglages par site** | Règles de blocage en un clic pour les conflits connus sur les sites populaires — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (votes A/Z, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), le Ctrl+J de Doubao, le Ctrl+P/J de Notion, le Ctrl+P/J de VS Code Web. Tous les sites pris en charge sont listés dans le panneau, sans avoir à les visiter d'abord. Chaque touche du préréglage devient une règle : modifiable ou supprimable individuellement |
 | 🔇 **Bloquer tous les raccourcis** | Un interrupteur par site qui neutralise chaque raccourci de la page, plus un interrupteur global en haut du panneau pour tous les sites à la fois (la saisie, les flèches, le presse-papiers et l'actualisation fonctionnent toujours ; la pause par site reste prioritaire) |
 | 📤 **Import / Export** | Sauvegardez et restaurez les règles en JSON (Premium) |
 
@@ -28,10 +28,10 @@ La plupart des bloqueurs de raccourcis ne font que bloquer — ils ne peuvent pa
 
 | Plan | Fonctionnalités |
 |------|----------|
-| **Gratuit** | Blocage de raccourcis, enregistrement de touches, activation globale, jusqu'à 20 règles actives |
-| **⭐ Premium** | Règles illimitées, redéfinition de touches, import/export JSON, support prioritaire |
+| **Gratuit** | Blocage de raccourcis, enregistrement de touches, activation globale, préréglages, import/export, règles illimitées |
+| **⭐ Premium** | Redéfinition de touches, synchronisation entre appareils (compte navigateur), support prioritaire |
 
-Toutes les fonctionnalités de base (blocage, enregistrement) sont gratuites à vie. La **Redéfinition de touches** et l'**Import/Export** nécessitent une licence VKT Premium.
+Blocage, enregistrement, préréglages et import/export sont gratuits à vie, sans limite de règles. La **redéfinition de touches** et la **synchronisation entre appareils** nécessitent une licence VKT Premium.
 
 - ⚙ L'activer : ouvrez le panneau latéral vkt-shortcut → cliquez sur le bouton **⚙** → saisissez votre clé de licence.
 

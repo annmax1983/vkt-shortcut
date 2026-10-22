@@ -185,7 +185,7 @@ button,select{font:inherit}
       <div class="policy-hero-card">
         <span class="eyebrow" id="p-eyebrow">Privacy Policy</span>
         <h1><span id="p-h1">VKT Shortcut</span> <span class="h1-sub" id="p-h1-sub">Privacy Policy</span></h1>
-        <p class="summary" id="p-summary">Rules are stored locally and key interception happens on your device. No browsing history or page content is collected. The licence server is contacted only for a Premium licence.</p>
+        <p class="summary" id="p-summary">Rules are stored locally and key interception happens on your device. No browsing history or page content is collected. The licence server is contacted only for a Premium licence. Optional Premium sync mirrors rules through your own browser account, never through our servers.</p>
         <div class="chips" id="p-chips"><span class="chip">Runs on your device</span><span class="chip">No analytics</span><span class="chip">No account</span><span class="chip">Licence optional</span></div>
         <p class="updated"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span id="p-updated">Last updated: October 2026</span></p>
       </div>
@@ -233,7 +233,9 @@ button,select{font:inherit}
   <li><strong>Device metadata</strong> &mdash; browser name and version, the full user-agent string (which can include the browser version and operating system), browser UI language, and time zone. This is used only to show your activated installations in the license dashboard.</li>
 </ul>
 <div class="note">Without a license key, the extension makes <strong>no network requests at all</strong>. The free tier is fully functional offline.</div>
-<p>Our license server records the IP address of these requests solely for rate limiting and abuse prevention — never for profiling, advertising, or sharing with third parties.</p></div></article>
+<p>Our license server records the IP address of these requests solely for rate limiting and abuse prevention — never for profiling, advertising, or sharing with third parties.</p>
+<h3>Optional cross-device sync (Premium)</h3>
+<p>Premium users can turn on rule syncing between their devices. Sync uses the <strong>browser's own account storage</strong> (<code>chrome.storage.sync</code>): Chrome copies the rules through your Google account, Edge through your Microsoft account. Your rules <strong>never pass through our servers</strong> — we cannot read them. If sync is on, a copy of your rules lives in your browser account's cloud and is governed by that account's privacy terms; if sync is off, rules exist only in <code>chrome.storage.local</code> on your device.</p></div></article>
 <article class="policy-card" id="section-4"><h2><span class="policy-num">04</span>Permissions and Why They Are Needed</h2><div class="policy-body"><p>These are the only permissions the extension requests:</p>
 <div class="table-wrap"><table>
   <tr><th>Permission</th><th>Purpose</th></tr>

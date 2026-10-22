@@ -10,32 +10,45 @@ A lightweight browser extension that blocks and remaps keyboard shortcuts. Stop 
 
 ## Why vkt-shortcut?
 
-Most shortcut blockers only block keys — they can't remap them. vkt-shortcut is different: **block for free, remap with Premium**, with one rule set that applies everywhere by default — plus per-site scoping when you need it.
+Most shortcut blockers only block keys — they can't remap them. vkt-shortcut does both: **blocking is free and unlimited**, while key remapping and cross-device sync are the paid extras.
 
 | Advantage | Detail |
 |-----------|--------|
 | 🚫 **Block Keys** | Intercept and disable page-level shortcuts on any website (web apps, games) |
 | 🔁 **Remap Keys** | Redirect one key combo to another inside the page (Premium) |
 | 🌐 **Global + Per-Site Rules** | Rules apply on every website by default; optionally scope a rule to one site (subdomains included) |
-| ⚡ **Site Presets** | One-click block rules for well-known shortcut conflicts on popular sites — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (A/Z votes, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), Doubao's Ctrl+J, Notion's Ctrl+P/J, VS Code Web's Ctrl+P/J. Every supported site is listed in the panel, so you don't have to visit it first. Each preset key becomes one rule, so the free 20-rule cap applies |
+| ⚡ **Site Presets** | One-click block rules for well-known shortcut conflicts on popular sites — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (A/Z votes, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), Doubao's Ctrl+J, Notion's Ctrl+P/J, VS Code Web's Ctrl+P/J. Every supported site is listed in the panel, so you don't have to visit it first. Each preset key becomes one editable rule |
 | 🔇 **Block All Shortcuts** | A per-site toggle that neutralizes every page shortcut, plus a global switch on the panel for all sites at once (typing, arrow-key navigation, clipboard and refresh still work; per-site pause takes priority) |
 | ⌨️ **Key Recording** | Press the key combo directly — captured automatically |
-| 📤 **Import / Export** | Backup and restore rules as JSON (Premium) |
+| 🔄 **Cross-device Sync** | Mirror rules through the browser account you are already signed in to — `chrome.storage.sync` on Chrome, Edge sync on Edge. No server of ours is involved (Premium) |
+| 📤 **Import / Export** | Backup and restore rules as JSON (free) |
 
 ---
 
 ## Free vs Premium
 
-| Plan | Features |
-|------|----------|
-| **Free** | Block shortcuts, key recording, global toggle, up to 20 enabled rules |
-| **⭐ Premium** | Unlimited rules, key remapping, import/export JSON, priority support |
+| | Free | Premium (license) |
+|---|---|---|
+| Rule count | **Unlimited** | Unlimited |
+| Block shortcuts | ✅ | ✅ |
+| Site presets, per-site and global block-all, per-site pause | ✅ | ✅ |
+| Import / export JSON | ✅ | ✅ |
+| **Key remapping** | ❌ | ✅ |
+| **Cross-device sync** (browser account) | ❌ | ✅ |
+| Account / sign-up | Not required | License key only |
+| Network | None | License validation only |
 
-All core features (block, record) are free forever. **Key Remapping** and **Import/Export** require a VKT Premium license.
+Free is a complete blocker, not a trial: there is **no rule cap since v1.5.0** and no upsell on any blocking feature. Premium adds the two things that need server-verified entitlement — remapping, and syncing rules between devices.
 
-- ⚙ Activate it: open the vkt-shortcut side panel → click the **⚙** button → enter your license key.
+### How sync works
 
-> License activation is **optional**. The free tier works fully without it — no account, no sign-up, no license key required.
+Sync uses the browser's own account storage (`chrome.storage.sync`), not a server of ours:
+
+- Chrome syncs through your **Google** account, Edge through your **Microsoft** account. The two never sync with each other.
+- Rules stay authoritative in `chrome.storage.local`; the cloud copy is only a transport.
+- Each rule is stored as its own item (one item per rule) because the sync API caps a single item at 8 KB. Hard ceiling is roughly **470 rules**.
+- Deletions travel as tombstones and merges take the newest `updatedAt`, so two devices cannot silently resurrect or overwrite each other.
+- If the browser is not signed in, `chrome.storage.sync` still works but stays local — the panel says so.
 
 ---
 
@@ -94,8 +107,10 @@ All core features (block, record) are free forever. **Key Remapping** and **Impo
 - ✅ Rules never leave your browser — blocking/remapping happens entirely locally
 - ✅ No analytics, no tracking, no cookies
 - ✅ Rules stored in `chrome.storage.local` only
-- ✅ Only `storage` + `sidePanel` permissions
-- ℹ️ The only network requests are optional license activation/validation, which sends your license key, a random install identifier and browser metadata to our license server (`api.annmax1983.com`)
+- ✅ Only `storage` + `sidePanel` permissions, plus `api.annmax1983.com` for optional license validation
+- ✅ No telemetry, no third-party scripts, no ads
+- ✅ Free users generate **zero** network traffic; sync uses your browser account, never our server
+- ✅ Import/export works on local JSON files that you control
 
 ---
 
