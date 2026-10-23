@@ -46,8 +46,9 @@ Sync uses the browser's own account storage (`chrome.storage.sync`), not a serve
 
 - Chrome syncs through your **Google** account, Edge through your **Microsoft** account. The two never sync with each other.
 - Rules stay authoritative in `chrome.storage.local`; the cloud copy is only a transport.
-- Each rule is stored as its own item (one item per rule) because the sync API caps a single item at 8 KB. Hard ceiling is roughly **470 rules**.
+- Each rule is stored as its own item (one item per rule) because the sync API caps a single item at 8 KB. The real ceiling is the 100 KB total payload, i.e. roughly **200 rules**; the panel reports byte usage.
 - Deletions travel as tombstones and merges take the newest `updatedAt`, so two devices cannot silently resurrect or overwrite each other.
+- The per-site pause and block-all switches travel with the rules; your licence key and install id never leave the device.
 - If the browser is not signed in, `chrome.storage.sync` still works but stays local — the panel says so.
 
 ---
@@ -55,7 +56,7 @@ Sync uses the browser's own account storage (`chrome.storage.sync`), not a serve
 ## Preview
 
 <p align="center">
-  <img src="screenshot/promo.png" alt="vkt-shortcut Preview" width="640">
+  <img src="screenshots/promo.png" alt="vkt-shortcut Preview" width="640">
 </p>
 
 ---
@@ -72,9 +73,12 @@ Sync uses the browser's own account storage (`chrome.storage.sync`), not a serve
 
 ## Installation
 
-1. Visit the Chrome Web Store page for vkt-shortcut
-2. Click **Add to Chrome** and confirm
-3. Click the ⌨️ vkt-shortcut icon in your toolbar to open the side panel
+| Store | Link |
+|---|---|
+| Chrome Web Store | [Install for Chrome](https://chromewebstore.google.com/detail/afpgmhahakgmmjomkkocecnbcdjndial) |
+| Microsoft Edge Add-ons | [Install for Edge](https://microsoftedge.microsoft.com/addons/detail/odbcgmpmlcobfpahpcpcikhbfhajmila) |
+
+> Install only from the official stores above — avoid third-party download sites.
 
 ---
 

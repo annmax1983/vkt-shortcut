@@ -38,7 +38,7 @@
 ## 预览
 
 <p align="center">
-  <img src="screenshot/promo.png" alt="vkt-shortcut 预览" width="640">
+  <img src="../screenshots/promo.png" alt="vkt-shortcut 预览" width="640">
 </p>
 
 ---
@@ -53,11 +53,14 @@
 
 ---
 
-## 安装方法
+## 安装
 
-1. 访问 vkt-shortcut 的 Chrome Web Store 页面
-2. 点击 **添加至 Chrome** 并确认
-3. 点击工具栏中的 ⌨️ vkt-shortcut 图标打开侧边栏
+| 商店 | 链接 |
+|---|---|
+| Chrome 应用商店 | [在 Chrome 中安装](https://chromewebstore.google.com/detail/afpgmhahakgmmjomkkocecnbcdjndial) |
+| Microsoft Edge 加载项 | [在 Edge 中安装](https://microsoftedge.microsoft.com/addons/detail/odbcgmpmlcobfpahpcpcikhbfhajmila) |
+
+> 请只通过上方官方商店安装，避免使用第三方下载站。
 
 ---
 

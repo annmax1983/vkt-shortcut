@@ -20,7 +20,7 @@ La mayoría de bloqueadores de atajos solo bloquean teclas — no pueden reasign
 | ⌨️ **Grabación de teclas** | Pulsa la combinación directamente — se captura automáticamente |
 | ⚡ **Preajustes por sitio** | Reglas de bloqueo con un clic para conflictos conocidos en sitios populares — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (votos A/Z, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), el Ctrl+J de Doubao, el Ctrl+P/J de Notion, el Ctrl+P/J de VS Code Web. Todos los sitios compatibles aparecen en el panel, sin tener que visitarlos antes. Cada tecla del preajuste crea una regla, y puedes editarla o borrarla por separado |
 | 🔇 **Bloquear todos los atajos** | Un interruptor por sitio que neutraliza cada atajo de la página, más un interruptor global en la parte superior del panel para todos los sitios a la vez (escribir, las flechas, el portapapeles y recargar siguen funcionando; la pausa por sitio tiene prioridad) |
-| 📤 **Importar / Exportar** | Respaldo y restauración de reglas como JSON (Premium) |
+| 📤 **Importar / Exportar** | Respaldo y restauración de reglas como JSON (gratis) |
 
 ---
 
@@ -42,7 +42,7 @@ Bloquear, grabar, ajustes e import/export son gratis para siempre y sin límite 
 ## Vista previa
 
 <p align="center">
-  <img src="screenshot/promo.png" alt="Vista previa de vkt-shortcut" width="640">
+  <img src="../screenshots/promo.png" alt="Vista previa de vkt-shortcut" width="640">
 </p>
 
 ---
@@ -59,9 +59,12 @@ Bloquear, grabar, ajustes e import/export son gratis para siempre y sin límite 
 
 ## Instalación
 
-1. Visita la página de Chrome Web Store de vkt-shortcut
-2. Haz clic en **Añadir a Chrome** y confirma
-3. Haz clic en el icono ⌨️ de vkt-shortcut en tu barra de herramientas para abrir el panel lateral
+| Tienda | Enlace |
+|---|---|
+| Chrome Web Store | [Instalar en Chrome](https://chromewebstore.google.com/detail/afpgmhahakgmmjomkkocecnbcdjndial) |
+| Complementos de Microsoft Edge | [Instalar en Edge](https://microsoftedge.microsoft.com/addons/detail/odbcgmpmlcobfpahpcpcikhbfhajmila) |
+
+> Instale solo desde las tiendas oficiales de arriba; evite sitios de descarga de terceros.
 
 ---
 

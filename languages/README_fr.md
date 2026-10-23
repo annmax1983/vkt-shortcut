@@ -20,7 +20,7 @@ La plupart des bloqueurs de raccourcis ne font que bloquer — ils ne peuvent pa
 | ⌨️ **Enregistrement de touches** | Appuyez directement sur la combinaison — capturée automatiquement |
 | ⚡ **Préréglages par site** | Règles de blocage en un clic pour les conflits connus sur les sites populaires — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (votes A/Z, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), le Ctrl+J de Doubao, le Ctrl+P/J de Notion, le Ctrl+P/J de VS Code Web. Tous les sites pris en charge sont listés dans le panneau, sans avoir à les visiter d'abord. Chaque touche du préréglage devient une règle : modifiable ou supprimable individuellement |
 | 🔇 **Bloquer tous les raccourcis** | Un interrupteur par site qui neutralise chaque raccourci de la page, plus un interrupteur global en haut du panneau pour tous les sites à la fois (la saisie, les flèches, le presse-papiers et l'actualisation fonctionnent toujours ; la pause par site reste prioritaire) |
-| 📤 **Import / Export** | Sauvegardez et restaurez les règles en JSON (Premium) |
+| 📤 **Import / Export** | Sauvegardez et restaurez les règles en JSON (gratuit) |
 
 ---
 
@@ -42,7 +42,7 @@ Blocage, enregistrement, préréglages et import/export sont gratuits à vie, sa
 ## Aperçu
 
 <p align="center">
-  <img src="screenshot/promo.png" alt="Aperçu vkt-shortcut" width="640">
+  <img src="../screenshots/promo.png" alt="Aperçu vkt-shortcut" width="640">
 </p>
 
 ---
@@ -59,9 +59,12 @@ Blocage, enregistrement, préréglages et import/export sont gratuits à vie, sa
 
 ## Installation
 
-1. Rendez-vous sur la page Chrome Web Store de vkt-shortcut
-2. Cliquez sur **Ajouter à Chrome** et confirmez
-3. Cliquez sur l'icône ⌨️ vkt-shortcut dans votre barre d'outils pour ouvrir le panneau latéral
+| Store | Lien |
+|---|---|
+| Chrome Web Store | [Installer dans Chrome](https://chromewebstore.google.com/detail/afpgmhahakgmmjomkkocecnbcdjndial) |
+| Microsoft Edge Add-ons | [Installer dans Edge](https://microsoftedge.microsoft.com/addons/detail/odbcgmpmlcobfpahpcpcikhbfhajmila) |
+
+> Installez uniquement depuis les boutiques officielles ci-dessus — évitez les sites de téléchargement tiers.
 
 ---
 

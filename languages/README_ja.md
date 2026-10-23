@@ -28,7 +28,7 @@
 | ショートカットのブロック | ウェブページ内のキーボードショートカットをサイト別に無効化 |
 | キー入力 | 目的のキーを押すだけで自動記録 |
 | 適用範囲 | デフォルトは全サイト。特定サイト（サブドメイン含む）に限定することも可能 |
-| サイトプリセット | 人気サイトで報告されている競合をワンクリックでブロック — YouTube（K/J/L/M/F/C/I/T）、X（N/L/R/T/B/M, /）、Reddit（A/Z 投票・J/K/C/S）、Facebook（J/K/L/C/S, /）、GitHub（S/T/W/B/X）、豆包の Ctrl+J、Notion の Ctrl+P/J、VS Code Web の Ctrl+P/J。対応サイトはパネルに一覧表示されるため、事前にそのサイトを開く必要はありません。プリセットのキーは 1 つにつき 1 ルールになるため、無料版の 20 ルール上限が適用されます |
+| サイトプリセット | 人気サイトで報告されている競合をワンクリックでブロック — YouTube（K/J/L/M/F/C/I/T）、X（N/L/R/T/B/M, /）、Reddit（A/Z 投票・J/K/C/S）、Facebook（J/K/L/C/S, /）、GitHub（S/T/W/B/X）、豆包の Ctrl+J、Notion の Ctrl+P/J、VS Code Web の Ctrl+P/J。対応サイトはパネルに一覧表示されるため、事前にそのサイトを開く必要はありません。プリセットのキーは 1 つにつき 1 ルールとして追加されます |
 | すべてのショートカットをブロック | サイトごとのスイッチでページ側ショートカットをすべて無効化。パネル上部には全サイト一括のグローバルスイッチもあり（文字入力・方向キーでの移動・クリップボード・再読み込みはそのまま。サイトごとの一時停止が優先） |
 | グローバルスイッチ | すべてのルールをワンクリックで有効/無効化 |
 | ルール数 | 上限なし（有効・無効を問いません） |
@@ -53,11 +53,14 @@
 
 ---
 
-## インストール方法
+## インストール
 
-1. Chrome Web Store の vkt-shortcut ページを開く
-2. **Chrome に追加**をクリックして確認
-3. ツールバーの ⌨️ アイコンをクリックしてサイドパネルを開く
+| ストア | リンク |
+|---|---|
+| Chrome ウェブストア | [Chrome に追加](https://chromewebstore.google.com/detail/afpgmhahakgmmjomkkocecnbcdjndial) |
+| Microsoft Edge アドオン | [Edge に追加](https://microsoftedge.microsoft.com/addons/detail/odbcgmpmlcobfpahpcpcikhbfhajmila) |
+
+> 上記の公式ストアからのみインストールしてください。第三者サイトの利用は避けてください。
 
 ---
 

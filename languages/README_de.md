@@ -54,9 +54,12 @@ Eine schlanke Browser-Erweiterung zum Blockieren und Umbelegen von Tastenkürzel
 
 ## Installation
 
-1. vkt-shortcut im Chrome Web Store aufrufen
-2. Auf **Zu Chrome hinzufügen** klicken und bestätigen
-3. In der Symbolleiste auf das ⌨️-Symbol klicken, um das Side Panel zu öffnen
+| Store | Link |
+|---|---|
+| Chrome Web Store | [In Chrome installieren](https://chromewebstore.google.com/detail/afpgmhahakgmmjomkkocecnbcdjndial) |
+| Microsoft Edge Add-ons | [In Edge installieren](https://microsoftedge.microsoft.com/addons/detail/odbcgmpmlcobfpahpcpcikhbfhajmila) |
+
+> Installieren Sie nur über die offiziellen Stores oben – meiden Sie Download-Seiten Dritter.
 
 ---
 
