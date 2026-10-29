@@ -4,7 +4,7 @@
 
 Una extensión ligera para el navegador que bloquea y reasigna atajos de teclado. Detén las teclas no deseadas, redirige combinaciones a acciones personalizadas y toma el control total de tu teclado.
 
-> Basada en Chromium · Manifest V3 · Sin rastreo · Procesamiento completamente local
+> Chrome / Edge / Firefox · Manifest V3 · Sin rastreo · Procesamiento completamente local
 
 ---
 
@@ -29,7 +29,7 @@ La mayoría de bloqueadores de atajos solo bloquean teclas — no pueden reasign
 | Plan | Funcionalidades |
 |------|----------|
 | **Gratis** | Bloquear atajos, grabación de teclas, interruptor global, ajustes, import/export, reglas ilimitadas |
-| **⭐ Premium** | Reasignación de teclas, sincronización entre dispositivos (cuenta del navegador), soporte prioritario |
+| **⭐ Premium** | Reasignación de teclas, sincronización entre dispositivos (cuenta del navegador) |
 
 Bloquear, grabar, ajustes e import/export son gratis para siempre y sin límite de reglas. La **reasignación de teclas** y la **sincronización entre dispositivos** requieren una licencia VKT Premium.
 
@@ -53,7 +53,10 @@ Bloquear, grabar, ajustes e import/export son gratis para siempre y sin límite 
 |---------|--------|
 | Google Chrome | ✅ Totalmente compatible |
 | Microsoft Edge | ✅ Totalmente compatible |
+| Mozilla Firefox | ✅ Totalmente compatible |
 | Otros navegadores basados en Chromium | ✅ Debería funcionar |
+
+> **Nota sobre Firefox:** La interfaz se abre en la barra lateral de Firefox (Ver → Barra lateral → vkt-shortcut), por lo que la versión de Firefox no solicita el permiso `sidePanel`. La sincronización entre dispositivos usa Firefox Sync (cuenta de Mozilla). El resto de funciones se comporta igual que en Chrome / Edge.
 
 ---
 
@@ -63,6 +66,7 @@ Bloquear, grabar, ajustes e import/export son gratis para siempre y sin límite 
 |---|---|
 | Chrome Web Store | [Instalar en Chrome](https://chromewebstore.google.com/detail/afpgmhahakgmmjomkkocecnbcdjndial) |
 | Complementos de Microsoft Edge | [Instalar en Edge](https://microsoftedge.microsoft.com/addons/detail/odbcgmpmlcobfpahpcpcikhbfhajmila) |
+| Complementos de Firefox (AMO) | 🔜 En revisión: el enlace se añadirá al publicarse |
 
 > Instale solo desde las tiendas oficiales de arriba; evite sitios de descarga de terceros.
 
@@ -95,8 +99,8 @@ Bloquear, grabar, ajustes e import/export son gratis para siempre y sin límite 
 
 - ✅ Las reglas nunca salen de tu navegador — el bloqueo/reasignación ocurre completamente localmente
 - ✅ Sin analíticas, sin rastreo, sin cookies
-- ✅ Las reglas se almacenan solo en `chrome.storage.local`
-- ✅ Solo permisos `storage` + `sidePanel`
+- ✅ Las reglas se almacenan solo en `storage.local`
+- ✅ Solo permisos `storage` + `sidePanel` (`sidePanel` solo en Chrome / Edge; Firefox usa su barra lateral)
 - ℹ️ Las únicas solicitudes de red son la activación/validación opcional de licencia, que envía tu clave de licencia, un identificador de instalación aleatorio y metadatos del navegador a nuestro servidor de licencias (`api.annmax1983.com`)
 
 ---
@@ -109,7 +113,7 @@ Esta extensión intercepta eventos de teclado en páginas web a nivel de navegad
 
 ## Aviso sobre el código fuente
 
-> ⚠️ **Este repositorio no publica código fuente.** Contiene únicamente documentación de uso, notas de lanzamiento y recursos de soporte. La extensión se distribuye exclusivamente a través de Chrome Web Store. No se proporcionan paquetes de instalación sin conexión ni código fuente para usuarios finales.
+> ⚠️ **Este repositorio no publica código fuente.** Contiene únicamente documentación de uso, notas de lanzamiento y recursos de soporte. La extensión se distribuye exclusivamente a través de Chrome Web Store, Microsoft Edge Add-ons y Firefox Add-ons (AMO). No se proporcionan paquetes de instalación sin conexión ni código fuente para usuarios finales.
 
 ---
 

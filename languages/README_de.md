@@ -3,7 +3,7 @@
 
 Eine schlanke Browser-Erweiterung zum Blockieren und Umbelegen von Tastenkürzeln. Vermeiden Sie ungewollte Auslösungen, passen Sie das Tastenverhalten an und übernehmen Sie die volle Kontrolle über Ihre Tastatur.
 
-> Chromium-basiert · Manifest V3 · Kein Tracking · Regeln zu 100 % lokal gespeichert
+> Chrome / Edge / Firefox · Manifest V3 · Kein Tracking · Regeln zu 100 % lokal gespeichert
 
 ---
 
@@ -15,7 +15,7 @@ Eine schlanke Browser-Erweiterung zum Blockieren und Umbelegen von Tastenkürzel
 | ❌ Zersplitterte Regeln ohne zentrale Steuerung | ✅ Standardmäßig überall wirksam, optional auf eine Website beschränkbar, mit globalem Schalter |
 | ❌ Komplizierte manuelle Tastensyntax | ✅ Einfach die Taste drücken – sie wird automatisch erkannt |
 | ❌ Datenübertragung und Datenschutzrisiken | ✅ Gesamte Konfiguration bleibt lokal im Browser |
-| ❌ Stark eingeschränkte Gratisversion | ✅ 3 kostenlose Regeln für den Grundbedarf |
+| ❌ Stark eingeschränkte Gratisversion | ✅ Blockieren, Presets und Import/Export sind kostenlos, ohne Regelbegrenzung |
 
 ---
 
@@ -39,7 +39,7 @@ Eine schlanke Browser-Erweiterung zum Blockieren und Umbelegen von Tastenkürzel
 |---|---|
 | **Tasten umbelegen** | Taste A wirken lassen wie Taste B |
 | **Geräteübergreifender Sync** | Regeln über das angemeldete Browser-Konto abgleichen (ohne unsere Server) |
-| **Prioritäts-Support** | Bevorzugte Unterstützung |
+
 ---
 
 ## Anwendungsfälle
@@ -52,12 +52,26 @@ Eine schlanke Browser-Erweiterung zum Blockieren und Umbelegen von Tastenkürzel
 
 ---
 
+## Unterstützte Browser
+
+| Browser | Status |
+|--------|--------|
+| Google Chrome | ✅ Vollständig unterstützt |
+| Microsoft Edge | ✅ Vollständig unterstützt |
+| Mozilla Firefox | ✅ Vollständig unterstützt |
+| Andere Chromium-basierte Browser | ✅ Sollte funktionieren |
+
+> **Firefox-Hinweis:** Die Oberfläche öffnet sich in der Firefox-Seitenleiste (Ansicht → Seitenleiste → vkt-shortcut); die Berechtigung `sidePanel` wird in der Firefox-Version daher nicht angefordert. Die geräteübergreifende Synchronisierung läuft über Firefox Sync (Mozilla-Konto). Die übrigen Funktionen verhalten sich wie unter Chrome / Edge.
+
+---
+
 ## Installation
 
 | Store | Link |
 |---|---|
 | Chrome Web Store | [In Chrome installieren](https://chromewebstore.google.com/detail/afpgmhahakgmmjomkkocecnbcdjndial) |
 | Microsoft Edge Add-ons | [In Edge installieren](https://microsoftedge.microsoft.com/addons/detail/odbcgmpmlcobfpahpcpcikhbfhajmila) |
+| Firefox-Add-ons (AMO) | 🔜 In Prüfung – Link folgt nach der Freigabe |
 
 > Installieren Sie nur über die offiziellen Stores oben – meiden Sie Download-Seiten Dritter.
 
@@ -67,15 +81,15 @@ Eine schlanke Browser-Erweiterung zum Blockieren und Umbelegen von Tastenkürzel
 
 - ✅ Regeln verlassen niemals den Browser — Blockieren und Umbelegen geschieht vollständig lokal
 - ✅ Keine Analyse, kein Tracking, keine Cookies
-- ✅ Regeln werden ausschließlich in `chrome.storage.local` gespeichert
-- ✅ Nur die Berechtigungen `storage` + `sidePanel`
+- ✅ Regeln werden ausschließlich in `storage.local` gespeichert
+- ✅ Nur die Berechtigungen `storage` + `sidePanel` (`sidePanel` nur unter Chrome / Edge; Firefox nutzt die eigene Seitenleiste)
 - ℹ️ Die einzigen Netzwerkanfragen sind die optionale Lizenzaktivierung und -prüfung (es werden Lizenzschlüssel, eine zufällige Installations-Kennung und Browser-Metadaten an unseren Lizenzserver `api.annmax1983.com` gesendet)
 
 ---
 
 ## Quellcode-Hinweis
 
-> ⚠️ **In diesem Repository wird kein Quellcode veröffentlicht.** Es enthält ausschließlich Nutzungsdokumentation, Versionshinweise und Support-Angebote. Die Erweiterung wird nur über den Chrome Web Store vertrieben; Offline-Installationspakete oder Quellcode für Endnutzer werden nicht bereitgestellt.
+> ⚠️ **In diesem Repository wird kein Quellcode veröffentlicht.** Es enthält ausschließlich Nutzungsdokumentation, Versionshinweise und Support-Angebote. Die Erweiterung wird nur über den Chrome Web Store, Microsoft Edge Add-ons und Firefox-Add-ons (AMO) vertrieben; Offline-Installationspakete oder Quellcode für Endnutzer werden nicht bereitgestellt.
 
 ---
 

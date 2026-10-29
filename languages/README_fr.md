@@ -4,7 +4,7 @@
 
 Une extension légère qui bloque et redéfinit les raccourcis clavier. Bloquez les raccourcis indésirables, redirigez les touches vers des actions personnalisées et prenez le contrôle total de votre clavier.
 
-> Chromium · Manifest V3 · Aucun suivi · Traitement 100 % local
+> Chrome / Edge / Firefox · Manifest V3 · Aucun suivi · Traitement 100 % local
 
 ---
 
@@ -29,7 +29,7 @@ La plupart des bloqueurs de raccourcis ne font que bloquer — ils ne peuvent pa
 | Plan | Fonctionnalités |
 |------|----------|
 | **Gratuit** | Blocage de raccourcis, enregistrement de touches, activation globale, préréglages, import/export, règles illimitées |
-| **⭐ Premium** | Redéfinition de touches, synchronisation entre appareils (compte navigateur), support prioritaire |
+| **⭐ Premium** | Redéfinition de touches, synchronisation entre appareils (compte navigateur) |
 
 Blocage, enregistrement, préréglages et import/export sont gratuits à vie, sans limite de règles. La **redéfinition de touches** et la **synchronisation entre appareils** nécessitent une licence VKT Premium.
 
@@ -53,7 +53,10 @@ Blocage, enregistrement, préréglages et import/export sont gratuits à vie, sa
 |---------|--------|
 | Google Chrome | ✅ Entièrement pris en charge |
 | Microsoft Edge | ✅ Entièrement pris en charge |
+| Mozilla Firefox | ✅ Entièrement pris en charge |
 | Autres navigateurs basés sur Chromium | ✅ Devrait fonctionner |
+
+> **Note Firefox :** L’interface s’ouvre dans la barre latérale de Firefox (Affichage → Barre latérale → vkt-shortcut), la version Firefox ne demande donc pas la permission `sidePanel`. La synchronisation entre appareils passe par Firefox Sync (compte Mozilla). Le reste des fonctions se comporte comme sous Chrome / Edge.
 
 ---
 
@@ -63,6 +66,7 @@ Blocage, enregistrement, préréglages et import/export sont gratuits à vie, sa
 |---|---|
 | Chrome Web Store | [Installer dans Chrome](https://chromewebstore.google.com/detail/afpgmhahakgmmjomkkocecnbcdjndial) |
 | Microsoft Edge Add-ons | [Installer dans Edge](https://microsoftedge.microsoft.com/addons/detail/odbcgmpmlcobfpahpcpcikhbfhajmila) |
+| Modules complémentaires Firefox (AMO) | 🔜 En cours d’examen — le lien sera ajouté après publication |
 
 > Installez uniquement depuis les boutiques officielles ci-dessus — évitez les sites de téléchargement tiers.
 
@@ -95,8 +99,8 @@ Blocage, enregistrement, préréglages et import/export sont gratuits à vie, sa
 
 - ✅ Les règles ne quittent jamais votre navigateur — le blocage/redéfinition se fait entièrement en local
 - ✅ Pas d'analytics, pas de suivi, pas de cookies
-- ✅ Les règles sont stockées uniquement dans `chrome.storage.local`
-- ✅ Permissions `storage` + `sidePanel` uniquement
+- ✅ Les règles sont stockées uniquement dans `storage.local`
+- ✅ Permissions `storage` + `sidePanel` (`sidePanel` uniquement sous Chrome / Edge ; Firefox utilise sa barre latérale) uniquement
 - ℹ️ Les seules requêtes réseau sont l'activation/validation optionnelle de la licence, qui envoie votre clé de licence, un identifiant d'installation aléatoire et des métadonnées de navigateur à notre serveur de licences (`api.annmax1983.com`)
 
 ---
@@ -109,7 +113,7 @@ Cette extension intercepte les événements clavier sur les pages web au niveau 
 
 ## Avis sur le code source
 
-> ⚠️ **Ce dépôt ne publie pas le code source.** Il contient uniquement la documentation d'utilisation, les notes de version et les ressources d'assistance. L'extension est distribuée exclusivement via le Chrome Web Store. Aucun package d'installation hors ligne ni code source destiné aux utilisateurs finaux n'est fourni.
+> ⚠️ **Ce dépôt ne publie pas le code source.** Il contient uniquement la documentation d'utilisation, les notes de version et les ressources d'assistance. L'extension est distribuée exclusivement via le Chrome Web Store, Microsoft Edge Add-ons et Firefox Add-ons (AMO). Aucun package d'installation hors ligne ni code source destiné aux utilisateurs finaux n'est fourni.
 
 ---
 

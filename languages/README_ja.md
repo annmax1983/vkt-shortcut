@@ -3,7 +3,7 @@
 
 キーボードショートカットをブロック・リマップできる軽量ブラウザ拡張です。誤操作を防ぎ、キーの動きを自由にカスタマイズして、キーボードを完全にコントロールしましょう。
 
-> Chromium ベース · Manifest V3 · トラッキングなし · ルールは 100% ローカル保存
+> Chrome / Edge / Firefox · Manifest V3 · トラッキングなし · ルールは 100% ローカル保存
 
 ---
 
@@ -39,7 +39,6 @@
 |---|---|
 | **キーのリマップ** | キー A をキー B の操作に置き換え |
 | **デバイス間同期** | ログイン中のブラウザアカウント経由でルールを同期（当社サーバーは介在しません） |
-| **優先サポート** | 優先的なサポート |
 
 ---
 
@@ -53,12 +52,26 @@
 
 ---
 
+## 対応ブラウザ
+
+| ブラウザ | 状態 |
+|--------|------|
+| Google Chrome | ✅ 完全対応 |
+| Microsoft Edge | ✅ 完全対応 |
+| Mozilla Firefox | ✅ 完全対応 |
+| その他のChromium系ブラウザ | ✅ 動作するはずです |
+
+> **Firefox について：** 画面は Firefox のサイドバーで開きます（表示 → サイドバー → vkt-shortcut）。そのため Firefox 版では `sidePanel` 権限を要求しません。端末間の同期には Firefox Sync（Mozilla アカウント）を使用します。その他の機能は Chrome / Edge と同じです。
+
+---
+
 ## インストール
 
 | ストア | リンク |
 |---|---|
 | Chrome ウェブストア | [Chrome に追加](https://chromewebstore.google.com/detail/afpgmhahakgmmjomkkocecnbcdjndial) |
 | Microsoft Edge アドオン | [Edge に追加](https://microsoftedge.microsoft.com/addons/detail/odbcgmpmlcobfpahpcpcikhbfhajmila) |
+| Firefox アドオン（AMO） | 🔜 審査中 — 公開後にリンクを追加します |
 
 > 上記の公式ストアからのみインストールしてください。第三者サイトの利用は避けてください。
 
@@ -68,15 +81,15 @@
 
 - ✅ ルールがブラウザの外に出ることはありません — ブロックもリマップも完全にローカルで処理
 - ✅ アナリティクス・トラッキング・クッキーなし
-- ✅ ルールは `chrome.storage.local` のみに保存
-- ✅ 必要な権限は `storage` + `sidePanel` のみ
+- ✅ ルールは `storage.local` のみに保存
+- ✅ 必要な権限は `storage` + `sidePanel` （`sidePanel` は Chrome / Edge のみ。Firefox は標準のサイドバーを使用） のみ
 - ℹ️ 唯一の通信はライセンスの認証・検証（任意）で、ライセンスキー・ランダムなインストール識別子・ブラウザ情報をライセンスサーバー（`api.annmax1983.com`）へ送信します
 
 ---
 
 ## ソースコードについて
 
-> ⚠️ **本リポジトリではソースコードを公開していません。** 使用方法・リリースノート・サポート情報のみを提供しています。拡張機能は Chrome Web Store 経由でのみ配布され、オフラインインストーラやエンドユーザー向けソースコードは提供していません。
+> ⚠️ **本リポジトリではソースコードを公開していません。** 使用方法・リリースノート・サポート情報のみを提供しています。拡張機能は Chrome Web Store、Microsoft Edgeアドオン、Firefoxアドオン（AMO） 経由でのみ配布され、オフラインインストーラやエンドユーザー向けソースコードは提供していません。
 
 ---
 

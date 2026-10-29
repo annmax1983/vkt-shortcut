@@ -3,7 +3,7 @@
 
 一款轻量级浏览器扩展，全局屏蔽和重映射键盘快捷键。告别误触干扰，自定义按键行为，全面掌控键盘。
 
-> 基于 Chromium · Manifest V3 · 无追踪 · 100% 本地处理
+> Chrome / Edge / Firefox · Manifest V3 · 无追踪 · 100% 本地处理
 
 ---
 
@@ -25,7 +25,7 @@
 | 版本 | 功能 |
 |------|------|
 | **免费版** | 快捷键屏蔽、按键录制、全局开关、站点预设、导入导出，规则数量不限 |
-| **⭐ 高级版** | 按键重映射、跨设备同步（走浏览器账号）、优先支持 |
+| **⭐ 高级版** | 按键重映射、跨设备同步（走浏览器账号） |
 
 屏蔽、录制、站点预设和导入导出永久免费且不限条数。**按键重映射**和**跨设备同步**需要 VKT 高级版许可证。
 
@@ -49,7 +49,10 @@
 |--------|------|
 | Google Chrome | ✅ 完全支持 |
 | Microsoft Edge | ✅ 完全支持 |
+| Mozilla Firefox | ✅ 完全支持 |
 | 其他 Chromium 内核浏览器 | ✅ 应该可用 |
+
+> **Firefox 说明：** 界面在 Firefox 侧边栏中打开（查看 → 侧栏 → vkt-shortcut），因此 Firefox 版不申请 `sidePanel` 权限。跨设备同步使用 Firefox Sync（Mozilla 账号）。其余功能与 Chrome / Edge 一致。
 
 ---
 
@@ -59,6 +62,7 @@
 |---|---|
 | Chrome 应用商店 | [在 Chrome 中安装](https://chromewebstore.google.com/detail/afpgmhahakgmmjomkkocecnbcdjndial) |
 | Microsoft Edge 加载项 | [在 Edge 中安装](https://microsoftedge.microsoft.com/addons/detail/odbcgmpmlcobfpahpcpcikhbfhajmila) |
+| Firefox 附加组件（AMO） | 🔜 审核中，上架后补充链接 |
 
 > 请只通过上方官方商店安装，避免使用第三方下载站。
 
@@ -91,8 +95,8 @@
 
 - ✅ 规则数据永不上传 —— 屏蔽/重映射全部本地完成
 - ✅ 无分析、无追踪、无 Cookie
-- ✅ 规则仅存储在 `chrome.storage.local`
-- ✅ 仅需 `storage` + `sidePanel` 权限
+- ✅ 规则仅存储在 `storage.local`
+- ✅ 仅需 `storage` + `sidePanel` （`sidePanel` 仅 Chrome / Edge，Firefox 使用原生侧栏） 权限
 - ℹ️ 唯一的网络请求是可选的许可证激活与校验（仅向许可证服务器 `api.annmax1983.com` 发送许可证密钥、随机安装标识与浏览器信息）
 
 ---
@@ -105,7 +109,7 @@
 
 ## 源码说明
 
-> ⚠️ **此处不发布源码。** 本仓库仅提供使用说明、更新日志和留言支持服务。扩展程序仅通过 Chrome Web Store 分发，不提供离线安装包或终端用户源代码。
+> ⚠️ **此处不发布源码。** 本仓库仅提供使用说明、更新日志和留言支持服务。扩展程序仅通过 Chrome Web Store、Microsoft Edge Add-ons 与 Firefox 附加组件（AMO） 分发，不提供离线安装包或终端用户源代码。
 
 ---
 

@@ -4,7 +4,7 @@ English | [中文](languages/README_zh.md) | [Español](languages/README_es.md) 
 
 A lightweight browser extension that blocks and remaps keyboard shortcuts. Stop unwanted hotkeys, redirect keys to custom actions, and take full control of your keyboard.
 
-> Chromium-based · Manifest V3 · No tracking · Fully Local Processing
+> Chrome · Edge · Firefox · Manifest V3 · No tracking · Fully Local Processing
 
 ---
 
@@ -20,7 +20,7 @@ Most shortcut blockers only block keys — they can't remap them. vkt-shortcut d
 | ⚡ **Site Presets** | One-click block rules for well-known shortcut conflicts on popular sites — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (A/Z votes, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), Doubao's Ctrl+J, Notion's Ctrl+P/J, VS Code Web's Ctrl+P/J. Every supported site is listed in the panel, so you don't have to visit it first. Each preset key becomes one editable rule |
 | 🔇 **Block All Shortcuts** | A per-site toggle that neutralizes every page shortcut, plus a global switch on the panel for all sites at once (typing, arrow-key navigation, clipboard and refresh still work; per-site pause takes priority) |
 | ⌨️ **Key Recording** | Press the key combo directly — captured automatically |
-| 🔄 **Cross-device Sync** | Mirror rules through the browser account you are already signed in to — `chrome.storage.sync` on Chrome, Edge sync on Edge. No server of ours is involved (Premium) |
+| 🔄 **Cross-device Sync** | Mirror rules through the browser account you are already signed in to — Chrome Sync on Chrome, Edge Sync on Edge, Firefox Sync on Firefox (`storage.sync`). No server of ours is involved (Premium) |
 | 📤 **Import / Export** | Backup and restore rules as JSON (free) |
 
 ---
@@ -42,14 +42,14 @@ Free is a complete blocker, not a trial: there is **no rule cap since v1.5.0** a
 
 ### How sync works
 
-Sync uses the browser's own account storage (`chrome.storage.sync`), not a server of ours:
+Sync uses the browser's own account storage (`storage.sync`), not a server of ours:
 
-- Chrome syncs through your **Google** account, Edge through your **Microsoft** account. The two never sync with each other.
-- Rules stay authoritative in `chrome.storage.local`; the cloud copy is only a transport.
+- Chrome syncs through your **Google** account, Edge through your **Microsoft** account, Firefox through your **Mozilla** account. Different browsers never sync with each other.
+- Rules stay authoritative in local storage (`storage.local`); the cloud copy is only a transport.
 - Each rule is stored as its own item (one item per rule) because the sync API caps a single item at 8 KB. The real ceiling is the 100 KB total payload, i.e. roughly **200 rules**; the panel reports byte usage.
 - Deletions travel as tombstones and merges take the newest `updatedAt`, so two devices cannot silently resurrect or overwrite each other.
 - The per-site pause and block-all switches travel with the rules; your licence key and install id never leave the device.
-- If the browser is not signed in, `chrome.storage.sync` still works but stays local — the panel says so.
+- If the browser is not signed in, `storage.sync` behaves like local storage — the panel says so.
 
 ---
 
@@ -63,11 +63,14 @@ Sync uses the browser's own account storage (`chrome.storage.sync`), not a serve
 
 ## Supported Browsers
 
-| Browser | Status |
-|---------|--------|
-| Google Chrome | ✅ Fully supported |
-| Microsoft Edge | ✅ Fully supported |
-| Other Chromium-based browsers | ✅ Should work |
+| Browser | Status | Notes |
+|---------|--------|-------|
+| Google Chrome | ✅ Fully supported | Side panel, Manifest V3 |
+| Microsoft Edge | ✅ Fully supported | Side panel, Manifest V3 |
+| Mozilla Firefox | ✅ Fully supported | Firefox sidebar, Manifest V3, Firefox 140+ (desktop) |
+| Other Chromium-based browsers | ✅ Should work | Side panel, Manifest V3 |
+
+> **Firefox note:** the panel opens in Firefox's **Sidebar** (*View → Sidebar → vkt-shortcut*) because Firefox has no SidePanel API. Blocking, remapping, site presets, per-site and global block-all, per-site pause, import/export and sync all behave the same way. Firefox asks for `storage`, `<all_urls>` (to observe key events on pages) and `https://api.annmax1983.com/*` for optional licence validation — no `sidePanel` permission.
 
 ---
 
@@ -77,6 +80,7 @@ Sync uses the browser's own account storage (`chrome.storage.sync`), not a serve
 |---|---|
 | Chrome Web Store | [Install for Chrome](https://chromewebstore.google.com/detail/afpgmhahakgmmjomkkocecnbcdjndial) |
 | Microsoft Edge Add-ons | [Install for Edge](https://microsoftedge.microsoft.com/addons/detail/odbcgmpmlcobfpahpcpcikhbfhajmila) |
+| Firefox Add-ons (AMO) | 🔜 Under review — link will be added once the listing is live |
 
 > Install only from the official stores above — avoid third-party download sites.
 
@@ -84,7 +88,7 @@ Sync uses the browser's own account storage (`chrome.storage.sync`), not a serve
 
 ## Usage
 
-1. **Click the ⌨️ icon** in your browser toolbar to open the side panel
+1. **Click the ⌨️ icon** in your browser toolbar to open the panel (side panel on Chrome / Edge, sidebar on Firefox)
 2. **Click "➕ New Rule"** to create a shortcut rule
 3. **Choose rule type** — Block (disable key) or Remap (redirect key A → key B)
 4. **Set the source key** — click the input field and press the key combo you want to intercept
@@ -110,8 +114,8 @@ Sync uses the browser's own account storage (`chrome.storage.sync`), not a serve
 
 - ✅ Rules never leave your browser — blocking/remapping happens entirely locally
 - ✅ No analytics, no tracking, no cookies
-- ✅ Rules stored in `chrome.storage.local` only
-- ✅ Only `storage` + `sidePanel` permissions, plus `api.annmax1983.com` for optional license validation
+- ✅ Rules stored in local storage (`storage.local`) only
+- ✅ Only the `storage` permission, plus `api.annmax1983.com` for optional license validation — on Chrome / Edge that also includes `sidePanel` to render the panel, while Firefox uses its built-in `sidebar_action` and needs no extra permission
 - ✅ No telemetry, no third-party scripts, no ads
 - ✅ Free users generate **zero** network traffic; sync uses your browser account, never our server
 - ✅ Import/export works on local JSON files that you control
@@ -126,7 +130,7 @@ This extension intercepts keyboard events on web pages at the browser level for 
 
 ## Source Code Notice
 
-> ⚠️ **This repository does not publish source code.** It contains only usage documentation, release notes, and support resources. The extension is distributed exclusively through the Chrome Web Store. No offline installation packages or end-user source code are provided.
+> ⚠️ **This repository does not publish source code.** It contains only usage documentation, release notes, and support resources. The extension is distributed exclusively through the Chrome Web Store, Microsoft Edge Add-ons and Firefox Add-ons (AMO). No offline installation packages or end-user source code are provided.
 
 ---
 
