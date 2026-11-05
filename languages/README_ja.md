@@ -71,7 +71,7 @@
 |---|---|
 | Chrome ウェブストア | [Chrome に追加](https://chromewebstore.google.com/detail/afpgmhahakgmmjomkkocecnbcdjndial) |
 | Microsoft Edge アドオン | [Edge に追加](https://microsoftedge.microsoft.com/addons/detail/odbcgmpmlcobfpahpcpcikhbfhajmila) |
-| Firefox アドオン（AMO） | 🔜 審査中 — 公開後にリンクを追加します |
+| Firefox アドオン（AMO） | [Firefox 版をインストール](https://addons.mozilla.org/firefox/addon/shortcut/) |
 
 > 上記の公式ストアからのみインストールしてください。第三者サイトの利用は避けてください。
 
@@ -102,3 +102,13 @@
 ## ライセンス
 
 プロプライエタリソフトウェア。全著作権所有。
+
+---
+
+## リンク
+
+- **公式サイト:** https://annmax1983.com/
+- **この拡張機能:** https://annmax1983.com/extensions/vkt-shortcut
+- **プライバシーポリシー:** https://annmax1983.com/privacy
+- **お問い合わせ:** support@annmax1983.com
+- **☕ 開発を支援（Ko-fi）:** https://ko-fi.com/annmax?ref=vkt-shortcut

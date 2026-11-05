@@ -66,7 +66,7 @@ Bloquear, grabar, ajustes e import/export son gratis para siempre y sin límite 
 |---|---|
 | Chrome Web Store | [Instalar en Chrome](https://chromewebstore.google.com/detail/afpgmhahakgmmjomkkocecnbcdjndial) |
 | Complementos de Microsoft Edge | [Instalar en Edge](https://microsoftedge.microsoft.com/addons/detail/odbcgmpmlcobfpahpcpcikhbfhajmila) |
-| Complementos de Firefox (AMO) | 🔜 En revisión: el enlace se añadirá al publicarse |
+| Complementos de Firefox (AMO) | [Instalar para Firefox](https://addons.mozilla.org/firefox/addon/shortcut/) |
 
 > Instale solo desde las tiendas oficiales de arriba; evite sitios de descarga de terceros.
 
@@ -128,3 +128,12 @@ Copyright © 2026 vkt-shortcut. Todos los derechos reservados.
 Si te resulta útil vkt-shortcut, ¡considera invitarme a un café!
 
 **[👉 Haz clic aquí para apoyar](https://ko-fi.com/annmax?ref=vkt-shortcut)**
+
+---
+
+## Enlaces
+
+- **Sitio oficial:** https://annmax1983.com/
+- **Esta extensión:** https://annmax1983.com/extensions/vkt-shortcut
+- **Privacidad:** https://annmax1983.com/privacy
+- **Contacto:** support@annmax1983.com

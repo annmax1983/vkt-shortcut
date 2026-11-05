@@ -71,7 +71,7 @@ Eine schlanke Browser-Erweiterung zum Blockieren und Umbelegen von Tastenkürzel
 |---|---|
 | Chrome Web Store | [In Chrome installieren](https://chromewebstore.google.com/detail/afpgmhahakgmmjomkkocecnbcdjndial) |
 | Microsoft Edge Add-ons | [In Edge installieren](https://microsoftedge.microsoft.com/addons/detail/odbcgmpmlcobfpahpcpcikhbfhajmila) |
-| Firefox-Add-ons (AMO) | 🔜 In Prüfung – Link folgt nach der Freigabe |
+| Firefox-Add-ons (AMO) | [Für Firefox installieren](https://addons.mozilla.org/firefox/addon/shortcut/) |
 
 > Installieren Sie nur über die offiziellen Stores oben – meiden Sie Download-Seiten Dritter.
 
@@ -102,3 +102,13 @@ Fragen, Feedback oder Funktionswünsche: **support@annmax1983.com**
 ## Lizenz
 
 Proprietäre Software. Alle Rechte vorbehalten.
+
+---
+
+## Links
+
+- **Offizielle Website:** https://annmax1983.com/
+- **Diese Erweiterung:** https://annmax1983.com/extensions/vkt-shortcut
+- **Datenschutz:** https://annmax1983.com/privacy
+- **Kontakt:** support@annmax1983.com
+- **☕ Projekt unterstützen (Ko-fi):** https://ko-fi.com/annmax?ref=vkt-shortcut

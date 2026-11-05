@@ -80,7 +80,7 @@ Sync uses the browser's own account storage (`storage.sync`), not a server of ou
 |---|---|
 | Chrome Web Store | [Install for Chrome](https://chromewebstore.google.com/detail/afpgmhahakgmmjomkkocecnbcdjndial) |
 | Microsoft Edge Add-ons | [Install for Edge](https://microsoftedge.microsoft.com/addons/detail/odbcgmpmlcobfpahpcpcikhbfhajmila) |
-| Firefox Add-ons (AMO) | 🔜 Under review — link will be added once the listing is live |
+| Firefox Add-ons (AMO) | [Install for Firefox](https://addons.mozilla.org/firefox/addon/shortcut/) |
 
 > Install only from the official stores above — avoid third-party download sites.
 
@@ -145,3 +145,13 @@ Copyright © 2026 vkt-shortcut. All rights reserved.
 If you find vkt-shortcut helpful, consider buying me a coffee!
 
 **[👉 Click here to support](https://ko-fi.com/annmax?ref=vkt-shortcut)**
+
+---
+
+## Links
+
+- **Official website:** https://annmax1983.com/
+- **This extension:** https://annmax1983.com/extensions/vkt-shortcut
+- **Privacy policy:** https://annmax1983.com/privacy
+- **Contact:** support@annmax1983.com
+- **☕ Support this project (Ko-fi):** https://ko-fi.com/annmax?ref=vkt-shortcut
