@@ -87,19 +87,23 @@ Eine schlanke Browser-Erweiterung zum Blockieren und Umbelegen von Tastenkürzel
 
 ---
 
-## Quellcode-Hinweis
-
-> ⚠️ **In diesem Repository wird kein Quellcode veröffentlicht.** Es enthält ausschließlich Nutzungsdokumentation, Versionshinweise und Support-Angebote. Die Erweiterung wird nur über den Chrome Web Store, Microsoft Edge Add-ons und Firefox-Add-ons (AMO) vertrieben; Offline-Installationspakete oder Quellcode für Endnutzer werden nicht bereitgestellt.
-
----
-
 ## Support
 
 Fragen, Feedback oder Funktionswünsche: **support@annmax1983.com**
 
 ---
 
+## Hinweis zum Quellcode
+
+> ⚠️ **Dieses Repository dient ausschließlich der Projektpräsentation — der vollständige Quellcode wird hier nicht veröffentlicht.** Es enthält nur die Nutzungsdokumentation, die Release-Notizen und Support-Informationen zur Erweiterung.
+
+> 📥 **Installation ausschließlich über die offiziellen Browser-Stores:** Chrome Web Store · Microsoft Edge Add-ons · Firefox-Add-ons (AMO). Von hier werden keine Offline-Installer verteilt.
+
+---
+
 ## Lizenz
+
+Diese Software ist proprietär und quellgeschlossen. Ohne vorherige schriftliche Genehmigung des Autors ist das Dekompilieren, Reverse-Engineering, Knacken, Verändern, Neuverpacken, Weiterverbreiten oder Weiterverkaufen der Software (ganz oder teilweise) streng untersagt.
 
 Proprietäre Software. Alle Rechte vorbehalten.
 
