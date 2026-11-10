@@ -10,12 +10,12 @@ Une extension légère qui bloque et redéfinit les raccourcis clavier. Bloquez 
 
 ## Pourquoi vkt-shortcut ?
 
-La plupart des bloqueurs de raccourcis ne font que bloquer — ils ne peuvent pas les redéfinir. vkt-shortcut est différent : **bloquez gratuitement, redéfinissez avec le Premium**, avec un jeu de règles qui s'applique partout par défaut — plus un ciblage par site quand vous en avez besoin.
+La plupart des bloqueurs de raccourcis ne font que bloquer — ils ne peuvent pas les redéfinir. vkt-shortcut est différent : **bloquez gratuitement, redéfinissez avec le Pro**, avec un jeu de règles qui s'applique partout par défaut — plus un ciblage par site quand vous en avez besoin.
 
 | Avantage | Détail |
 |-----------|--------|
 | 🚫 **Bloquer des touches** | Interceptez et désactivez les raccourcis clavier des pages, sur n'importe quel site |
-| 🔁 **Redéfinir des touches** | Redirigez une combinaison vers une autre dans la page (Premium) |
+| 🔁 **Redéfinir des touches** | Redirigez une combinaison vers une autre dans la page (Pro) |
 | 🌐 **Règles globales + par site** | Les règles s'appliquent sur chaque site par défaut ; limitez optionnellement une règle à un seul site (sous-domaines inclus) |
 | ⌨️ **Enregistrement de touches** | Appuyez directement sur la combinaison — capturée automatiquement |
 | ⚡ **Préréglages par site** | Règles de blocage en un clic pour les conflits connus sur les sites populaires — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (votes A/Z, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), le Ctrl+J de Doubao, le Ctrl+P/J de Notion, le Ctrl+P/J de VS Code Web. Tous les sites pris en charge sont listés dans le panneau, sans avoir à les visiter d'abord. Chaque touche du préréglage devient une règle : modifiable ou supprimable individuellement |
@@ -24,14 +24,14 @@ La plupart des bloqueurs de raccourcis ne font que bloquer — ils ne peuvent pa
 
 ---
 
-## Gratuit vs Premium
+## Gratuit vs Pro
 
 | Plan | Fonctionnalités |
 |------|----------|
-| **Gratuit** | Blocage de raccourcis, enregistrement de touches, activation globale, préréglages, import/export, règles illimitées |
-| **⭐ Premium** | Redéfinition de touches, synchronisation entre appareils (compte navigateur) |
+| **Gratuit** | Blocage de raccourcis, enregistrement de touches, activation globale, préréglages, import/export, jusqu'à 10 règles (la licence lève la limite) |
+| **⭐ Pro** | Redéfinition de touches, synchronisation entre appareils (compte navigateur) |
 
-Blocage, enregistrement, préréglages et import/export sont gratuits à vie, sans limite de règles. La **redéfinition de touches** et la **synchronisation entre appareils** nécessitent une licence VKT Premium.
+Blocage, enregistrement, préréglages et import/export sont gratuits à vie, sans limite de règles. La **redéfinition de touches** et la **synchronisation entre appareils** nécessitent une licence VKT Pro.
 
 - ⚙ L'activer : ouvrez le panneau latéral vkt-shortcut → cliquez sur le bouton **⚙** → saisissez votre clé de licence.
 

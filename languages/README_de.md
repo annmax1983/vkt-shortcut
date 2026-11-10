@@ -11,7 +11,7 @@ Eine schlanke Browser-Erweiterung zum Blockieren und Umbelegen von Tastenkürzel
 
 | Problem bei Konkurrenten | vkt-shortcut Lösung |
 |---|---|
-| ❌ Nur Blockieren, kein Umbelegen | ✅ Tasten blockieren; Umbelegen als Premium-Funktion |
+| ❌ Nur Blockieren, kein Umbelegen | ✅ Tasten blockieren; Umbelegen als Pro-Funktion |
 | ❌ Zersplitterte Regeln ohne zentrale Steuerung | ✅ Standardmäßig überall wirksam, optional auf eine Website beschränkbar, mit globalem Schalter |
 | ❌ Komplizierte manuelle Tastensyntax | ✅ Einfach die Taste drücken – sie wird automatisch erkannt |
 | ❌ Datenübertragung und Datenschutzrisiken | ✅ Gesamte Konfiguration bleibt lokal im Browser |
@@ -31,9 +31,9 @@ Eine schlanke Browser-Erweiterung zum Blockieren und Umbelegen von Tastenkürzel
 | Website-Voreinstellungen | Ein-Klick-Blockregeln für bekannte Konflikte auf beliebten Websites — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (A/Z-Stimmen, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), Doubaos Ctrl+J, Notions Ctrl+P/J, VS Code Webs Ctrl+P/J. Alle unterstützten Websites stehen direkt im Panel, ohne dass Sie sie erst besuchen müssen. Jede Preset-Taste wird eine eigene Regel; lässt sich einzeln bearbeiten oder löschen |
 | Alle Kürzel blockieren | Ein Schalter pro Website, der jedes Seiten-Kürzel außer Kraft setzt, plus ein globaler Schalter oben im Side Panel für alle Websites auf einmal (Eingabe, Tastaturnavigation, Zwischenablage und Neu laden funktionieren weiterhin; die Website-Pause hat Vorrang) |
 | Globaler Schalter | Alle Regeln mit einem Klick aktivieren/deaktivieren |
-| Regeln | Unbegrenzt, aktiv oder inaktiv |
+| Regeln | Bis zu 10 in der Gratis-Version (die Lizenz hebt das Limit auf); aktiv oder inaktiv |
 
-### ⭐ Premium (per Lizenz freigeschaltet)
+### ⭐ Pro (per Lizenz freigeschaltet)
 
 | Funktion | Beschreibung |
 |---|---|

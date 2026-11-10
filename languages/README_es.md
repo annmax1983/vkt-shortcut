@@ -10,12 +10,12 @@ Una extensión ligera para el navegador que bloquea y reasigna atajos de teclado
 
 ## ¿Por qué vkt-shortcut?
 
-La mayoría de bloqueadores de atajos solo bloquean teclas — no pueden reasignarlas. vkt-shortcut es diferente: **bloquea gratis, reasigna con Premium**, con un conjunto de reglas que se aplica en todas partes por defecto — más el alcance por sitio cuando lo necesitas.
+La mayoría de bloqueadores de atajos solo bloquean teclas — no pueden reasignarlas. vkt-shortcut es diferente: **bloquea gratis, reasigna con Pro**, con un conjunto de reglas que se aplica en todas partes por defecto — más el alcance por sitio cuando lo necesitas.
 
 | Ventaja | Detalle |
 |---------|--------|
 | 🚫 **Bloquear teclas** | Intercepta y desactiva atajos de teclado dentro de la página, en cualquier sitio |
-| 🔁 **Reasignar teclas** | Redirige una combinación de teclas a otra dentro de la página — poco común en herramientas similares (Premium) |
+| 🔁 **Reasignar teclas** | Redirige una combinación de teclas a otra dentro de la página — poco común en herramientas similares (Pro) |
 | 🌐 **Reglas globales + por sitio** | Las reglas se aplican en todos los sitios web por defecto; opcionalmente limita una regla a un sitio (subdominios incluidos) |
 | ⌨️ **Grabación de teclas** | Pulsa la combinación directamente — se captura automáticamente |
 | ⚡ **Preajustes por sitio** | Reglas de bloqueo con un clic para conflictos conocidos en sitios populares — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (votos A/Z, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), el Ctrl+J de Doubao, el Ctrl+P/J de Notion, el Ctrl+P/J de VS Code Web. Todos los sitios compatibles aparecen en el panel, sin tener que visitarlos antes. Cada tecla del preajuste crea una regla, y puedes editarla o borrarla por separado |
@@ -24,14 +24,14 @@ La mayoría de bloqueadores de atajos solo bloquean teclas — no pueden reasign
 
 ---
 
-## Gratis vs Premium
+## Gratis vs Pro
 
 | Plan | Funcionalidades |
 |------|----------|
-| **Gratis** | Bloquear atajos, grabación de teclas, interruptor global, ajustes, import/export, reglas ilimitadas |
-| **⭐ Premium** | Reasignación de teclas, sincronización entre dispositivos (cuenta del navegador) |
+| **Gratis** | Bloquear atajos, grabación de teclas, interruptor global, ajustes, import/export, hasta 10 reglas (la licencia quita el límite) |
+| **⭐ Pro** | Reasignación de teclas, sincronización entre dispositivos (cuenta del navegador) |
 
-Bloquear, grabar, ajustes e import/export son gratis para siempre y sin límite de reglas. La **reasignación de teclas** y la **sincronización entre dispositivos** requieren una licencia VKT Premium.
+Bloquear, grabar, ajustes e import/export son gratis para siempre, con hasta 10 reglas (la licencia quita el límite). La **reasignación de teclas** y la **sincronización entre dispositivos** requieren una licencia VKT Pro.
 
 - ⚙ Activarla: abre el panel lateral de vkt-shortcut → haz clic en el botón **⚙** → introduce tu clave de licencia.
 

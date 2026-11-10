@@ -10,26 +10,26 @@ A lightweight browser extension that blocks and remaps keyboard shortcuts. Stop 
 
 ## Why vkt-shortcut?
 
-Most shortcut blockers only block keys — they can't remap them. vkt-shortcut does both: **blocking is free and unlimited**, while key remapping and cross-device sync are the paid extras.
+Most shortcut blockers only block keys — they can't remap them. vkt-shortcut does both: **blocking is free for up to 10 rules**, while key remapping and cross-device sync are the paid extras.
 
 | Advantage | Detail |
 |-----------|--------|
 | 🚫 **Block Keys** | Intercept and disable page-level shortcuts on any website (web apps, games) |
-| 🔁 **Remap Keys** | Redirect one key combo to another inside the page (Premium) |
+| 🔁 **Remap Keys** | Redirect one key combo to another inside the page (Pro) |
 | 🌐 **Global + Per-Site Rules** | Rules apply on every website by default; optionally scope a rule to one site (subdomains included) |
 | ⚡ **Site Presets** | One-click block rules for well-known shortcut conflicts on popular sites — YouTube (K/J/L/M/F/C/I/T), X (N/L/R/T/B/M, /), Reddit (A/Z votes, J/K/C/S), Facebook (J/K/L/C/S, /), GitHub (S/T/W/B/X), Doubao's Ctrl+J, Notion's Ctrl+P/J, VS Code Web's Ctrl+P/J. Every supported site is listed in the panel, so you don't have to visit it first. Each preset key becomes one editable rule |
 | 🔇 **Block All Shortcuts** | A per-site toggle that neutralizes every page shortcut, plus a global switch on the panel for all sites at once (typing, arrow-key navigation, clipboard and refresh still work; per-site pause takes priority) |
 | ⌨️ **Key Recording** | Press the key combo directly — captured automatically |
-| 🔄 **Cross-device Sync** | Mirror rules through the browser account you are already signed in to — Chrome Sync on Chrome, Edge Sync on Edge, Firefox Sync on Firefox (`storage.sync`). No server of ours is involved (Premium) |
+| 🔄 **Cross-device Sync** | Mirror rules through the browser account you are already signed in to — Chrome Sync on Chrome, Edge Sync on Edge, Firefox Sync on Firefox (`storage.sync`). No server of ours is involved (Pro) |
 | 📤 **Import / Export** | Backup and restore rules as JSON (free) |
 
 ---
 
-## Free vs Premium
+## Free vs Pro
 
-| | Free | Premium (license) |
+| | Free | Pro (license) |
 |---|---|---|
-| Rule count | **Unlimited** | Unlimited |
+| Rule count | Up to **10** | Unlimited |
 | Block shortcuts | ✅ | ✅ |
 | Site presets, per-site and global block-all, per-site pause | ✅ | ✅ |
 | Import / export JSON | ✅ | ✅ |
@@ -38,7 +38,7 @@ Most shortcut blockers only block keys — they can't remap them. vkt-shortcut d
 | Account / sign-up | Not required | License key only |
 | Network | None | License validation only |
 
-Free is a complete blocker, not a trial: there is **no rule cap since v1.5.0** and no upsell on any blocking feature. Premium adds the two things that need server-verified entitlement — remapping, and syncing rules between devices.
+Free is a complete blocker, not a trial: blocking, presets, pause and import/export all work with no upsell inside the blocker, and rules you created keep running even past the cap. The one limit is **10 rules** on the free tier; a licence lifts it. Pro adds the two things that need server-verified entitlement — remapping, and syncing rules between devices.
 
 ### How sync works
 
